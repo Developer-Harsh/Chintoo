@@ -6,12 +6,12 @@
         <item name="android:windowTitleStyle">@style/DialogTitle</item>
     </style>
     <style name="DialogTitle">
-        <item name="android:background">@color/Red_Smooth</item>
+        <item name="android:background">@color/appColor</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
     <style name="SwitchStyle">
-        <item name="colorControlActivated">@color/Yellow</item>
+        <item name="colorControlActivated">@color/appColor</item>
     </style>
 
     <style name="AppBottomSheetDialogTheme"

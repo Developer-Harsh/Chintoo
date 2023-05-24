@@ -7,41 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="Deep_Yellow">#FCF83E</color>
-    <color name="Yellow">#FFC801</color>
 
-    <color name="Gray">#DBDCDB</color>
-
-    <color name="Blue">#4c5cd5</color>
-
-    <color name="Primary">#29282D</color>
-
-    <color name="TitleBar_BG">#29282D</color>
-    <color name="Screen_Background">#29282D</color>
-
-    <color name="Splash_TitleBar_BG">#1B242F</color>
-    <color name="Splash_Background">#1B242F</color>
-
-    <color name="Home_TitleBar_BG">#29282D</color>
-    <color name="Home_Background">#29282D</color>
-
-    <color name="login_signup_TitleBar_BG">#29282D</color>
-    <color name="login_signup_Background">#29282D</color>
-
-    <color name="Non_Selected">#9C9C9E</color>
-    <color name="Selected">#FFFFFFFF</color>
-
-    <color name="Gray_Smooth">#9B9A9F</color>
-
-    <color name="Red_Smooth">#DF4674</color>
-    <color name="Black_Smooth">#17161B</color>
-
-    <color name="Deep_Red">#EE2E47</color>
-
-    <color name="Orange_Smooth">#ee727e</color>
-
-    <color name="w_Dark">#2C2B31</color>
-
-    <color name="Grediant_Red_1">#DE4D84</color>
-    <color name="Grediant_Red_2">#E24E5A</color>
+    <color name="bg">#090911</color>
+    <color name="appColor">#8B8BE1</color>
+    <color name="ad_box">#191925</color>
+    <color name="toolbar">#07070C</color>
+    <color name="bottomNavigation">#0F0F19</color>
+    <color name="unselect">#9393A2</color>
+    <color name="select">#FFFFFFFF</color>
+    <color name="yellow">#FFC027</color>
+    <color name="drawer">#0D0D13</color>
+    <color name="divider">#191925</color>
 </resources>
