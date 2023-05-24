@@ -1,0 +1,4 @@
+include ':app'
+rootProject.name = "Chintoo"
+include ':nativetemplates'
+include ':liquid_swipe'
