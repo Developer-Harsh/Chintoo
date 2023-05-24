@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home" />
+
+    <item
+        android:id="@+id/movie"
+        android:title="Movies"
+        android:icon="@drawable/movie" />
+
+    <item
+        android:id="@+id/livetv"
+        android:title="Live TV"
+        android:icon="@drawable/livetv" />
+
+    <item
+        android:id="@+id/series"
+        android:title="Series"
+        android:icon="@drawable/series" />
+
+    <item
+        android:id="@+id/favorite"
+        android:title="Favourites"
+        android:icon="@drawable/heart" />
+</menu>

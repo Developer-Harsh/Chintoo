@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:checked="true"
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="Home"/>
+
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/movie"
+            android:icon="@drawable/movie"
+            android:title="Movies" >
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menu_top1"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/series"
+            android:icon="@drawable/series"
+            android:title="Series" >
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menu_top2"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/livetv"
+            android:icon="@drawable/livetv"
+            android:title="Live TV" >
+        </item>
+    </group>
+
+    <group
+        android:id="@+id/menu_top3"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/favorite"
+            android:icon="@drawable/heart"
+            android:title="Favourites" >
+        </item>
+    </group>
+    <group
+        android:id="@+id/menu_top4"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/genre"
+            android:icon="@drawable/folder"
+            android:title="Genre" >
+        </item>
+    </group>
+    <group
+        android:id="@+id/menu_top5"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/login"
+            android:icon="@drawable/signin"
+            android:title="Login" >
+        </item>
+    </group>
+    <group
+        android:id="@+id/menu_top6"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/settings"
+            android:title="Settings" >
+        </item>
+    </group>
+</menu>
