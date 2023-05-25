@@ -9,7 +9,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,18 +40,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/bottomNavigation"
+        app:itemIconTint="@color/unselect"
+        app:itemRippleColor="@color/select"
+        app:itemTextColor="@color/unselect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navigation" />
 
-<!--    <com.jetradarmobile.snowfall.SnowfallView-->
-<!--        android:id="@+id/SnowfallView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:visibility="gone"-->
-<!--        app:snowflakeSizeMin="5dp"-->
-<!--        app:snowflakeSizeMax="20dp"-->
-<!--        app:snowflakeImage="@drawable/snowflake"/>-->
+    <com.jetradarmobile.snowfall.SnowfallView
+        android:id="@+id/SnowfallView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:snowflakeSizeMin="5dp"
+        app:snowflakeSizeMax="20dp"
+        app:snowflakeImage="@drawable/snowflake"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

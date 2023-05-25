@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Screen_Background">
+    android:background="@color/bg">
 
 
 
@@ -32,7 +32,7 @@
                         android:id="@+id/searchTVChannel"
                         android:layout_width="35dp"
                         android:layout_height="25dp"
-                        android:background="@drawable/premium_tag_bg"
+                        android:background="@color/bg"
                         android:gravity="center"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -49,24 +49,25 @@
                     android:id="@+id/filterTag"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:background="@drawable/report_item_bg"
+                    android:background="@color/bg"
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="5dp"
                     android:visibility="gone">
 
-                    <ImageView
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"
-                        android:src="@drawable/ic_filter"
-                        app:tint="@color/white"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp" />
+<!--                    <ImageView-->
+<!--                        android:layout_width="13dp"-->
+<!--                        android:layout_height="13dp"-->
+<!--                        android:src="@drawable/ic_filter"-->
+<!--                        app:tint="@color/white"-->
+<!--                        android:layout_marginStart="5dp"-->
+<!--                        android:layout_marginEnd="5dp" />-->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Filter"
+
                         android:textColor="@color/white"
                         android:textSize="10sp"
                         android:gravity="center"
@@ -98,6 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:text="Live"
+                        android:fontFamily="@font/manrope_semibold"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/white"
                         android:textSize="30sp"
@@ -111,10 +113,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:fontFamily="sans-serif-black"
+                        android:fontFamily="@font/manrope_bold"
                         android:text="TV"
                         android:textAlignment="viewEnd"
-                        android:textColor="@color/Red_Smooth"
+                        android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,9 +131,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
+                    android:fontFamily="@font/manrope"
                     android:text="Watch From Your Favourite Channel"
                     android:textAlignment="textStart"
-                    android:textColor="@color/Gray_Smooth"
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -161,6 +164,6 @@
         android:visibility="gone"
         app:snowflakeSizeMin="5dp"
         app:snowflakeSizeMax="20dp"
-        app:snowflakeImage="@drawable/snowflake"/>
+        app:snowflakeImage="@drawable/logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

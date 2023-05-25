@@ -5,18 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InAppUpdate"
-    android:background="@color/white">
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/rocket_telescope" />
+    android:background="@color/bg">
 
     <TextView
         android:id="@+id/Update_Title"
@@ -25,12 +14,12 @@
         android:layout_marginTop="15dp"
         android:text="UPDATE AVALIABLE"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animationView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Whats_New_Recycleview"
@@ -51,12 +40,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="16dp"
-        android:progressTint="@color/Red_Smooth"
+        android:progressTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Cancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/Cancel"
-        android:indeterminateTint="@color/Red_Smooth"
+        android:indeterminateTint="@color/white"
         android:visibility="gone"
         />
 
@@ -65,21 +54,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/Red_Smooth"
+        android:backgroundTint="@color/white"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/UPDATE"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/send_otp_btn_ripple"
         android:text="UPDATE"
         android:textStyle="bold"
-        app:backgroundTint="@null"
+        app:backgroundTint="@color/yellow"
+        app:cornerRadius="50dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

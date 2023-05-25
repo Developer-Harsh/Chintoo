@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginSignup"
-    android:background="@color/login_signup_Background"
+    android:background="@color/bg"
     android:id="@+id/login_signup">
 
     <RelativeLayout
@@ -17,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="2dp"
-            android:background="@color/login_signup_Background"
+            android:background="@color/bg"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabIndicator="@drawable/tab_indicator"
@@ -25,8 +24,8 @@
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorGravity="bottom"
             app:tabIndicatorHeight="3dp"
-            app:tabTextColor="@color/Non_Selected"
-            app:tabSelectedTextColor="@color/Selected"
+            app:tabTextColor="@color/unselect"
+            app:tabSelectedTextColor="@color/select"
             app:tabTextAppearance="@style/login_signup_TabLayoutTextStyle">
 
             <com.google.android.material.tabs.TabItem
@@ -67,5 +66,5 @@
         android:visibility="gone"
         app:snowflakeSizeMin="5dp"
         app:snowflakeSizeMax="20dp"
-        app:snowflakeImage="@drawable/snowflake"/>
+        app:snowflakeImage="@drawable/logo"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
