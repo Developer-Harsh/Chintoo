@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EmbedPlayer"
-    android:background="@color/Screen_Background">
+    android:background="@color/bg">
 
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/Screen_Background"/>
+        android:backgroundTint="@color/bg"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

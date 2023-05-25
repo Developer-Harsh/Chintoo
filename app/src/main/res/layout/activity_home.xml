@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home"
-    android:background="@color/Home_Background">
+    android:background="@color/bg">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,22 +40,19 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Screen_Background"
-        app:itemIconTint="@color/bnv_tab_item_foreground"
-        app:itemRippleColor="@color/Screen_Background"
-        app:itemTextColor="@color/bnv_tab_item_foreground"
+        android:background="@color/bottomNavigation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu" />
+        app:menu="@menu/bottom_navigation" />
 
-    <com.jetradarmobile.snowfall.SnowfallView
-        android:id="@+id/SnowfallView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:snowflakeSizeMin="5dp"
-        app:snowflakeSizeMax="20dp"
-        app:snowflakeImage="@drawable/snowflake"/>
+<!--    <com.jetradarmobile.snowfall.SnowfallView-->
+<!--        android:id="@+id/SnowfallView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:visibility="gone"-->
+<!--        app:snowflakeSizeMin="5dp"-->
+<!--        app:snowflakeSizeMax="20dp"-->
+<!--        app:snowflakeImage="@drawable/snowflake"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
