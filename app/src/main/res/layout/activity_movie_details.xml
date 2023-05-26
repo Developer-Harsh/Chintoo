@@ -40,7 +40,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:layout_gravity="top"
-                        android:background="@drawable/banner_gradiant"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/guideline10"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -49,10 +49,9 @@
                     <View
                         android:id="@+id/view"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="300dp"
                         android:layout_gravity="bottom"
-                        android:background="@drawable/banner_gradiant"
-                        android:rotation="180"
+                        android:background="@drawable/fade_gradiant"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -62,70 +61,38 @@
                 </LinearLayout>
             </FrameLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/playLayout"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="280dp"
-                android:layout_marginEnd="15dp"
-                android:backgroundTint="@color/Red_Smooth"
-                android:clickable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:id="@+id/Play_Movie"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/play_button_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Play"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
             <ImageView
                 android:id="@+id/Movie_Details_Back"
-                android:layout_width="35dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:clickable="true"
-                android:rotation="180"
+                android:padding="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/advance_arrow" />
+                app:srcCompat="@drawable/left"
+                app:tint="@color/white" />
 
             <LinearLayout
                 android:id="@+id/reportButton"
                 android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/report_item_bg"
+                android:layout_height="32dp"
+                android:background="@drawable/edittext_bg"
                 android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:paddingHorizontal="8dp"
+                android:layout_marginEnd="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="13dp"
                     android:layout_height="13dp"
-                    android:src="@drawable/info"
-                    android:layout_marginStart="5dp"/>
+                    android:src="@drawable/report"
+                    app:tint="@color/white"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -133,33 +100,33 @@
                     android:textColor="@color/white"
                     android:textSize="10sp"
                     android:gravity="center"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/baloo2_bold"
                     android:layout_marginEnd="5dp"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/commentBtn"
-                android:layout_width="35dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/comment_tag_bg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/toolbar_bg"
                 android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/reportButton"
                 android:visibility="gone">
 
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_message" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:tint="@color/white"
+                    android:src="@drawable/message" />
             </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView13"
-                android:layout_width="140dp"
-                android:layout_height="200dp"
+                android:layout_width="110dp"
+                android:layout_height="170dp"
                 android:layout_marginStart="15dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="18dp"
                 app:layout_constraintBottom_toTopOf="@+id/playLayout"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Movie_Details_Back">
@@ -178,19 +145,21 @@
 
                     <LinearLayout
                         android:id="@+id/Premium_Tag"
-                        android:layout_width="35dp"
-                        android:layout_height="25dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/premium_tag_bg"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="15dp"
+                        android:backgroundTint="@color/yellow"
+                        android:background="@drawable/toolbar_bg"
                         android:gravity="center"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:src="@drawable/crown" />
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:tint="@color/white"
+                            android:src="@drawable/star" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -203,8 +172,8 @@
                 android:layout_marginTop="20dp"
                 android:text="Title"
                 android:textColor="@color/white"
-                android:textSize="20dp"
-                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="@font/baloo2_bold"
                 app:layout_constraintEnd_toEndOf="@+id/frameLayout"
                 app:layout_constraintStart_toEndOf="@+id/cardView13"
                 app:layout_constraintTop_toTopOf="@+id/cardView13">
@@ -217,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="0000-00-00"
-                android:textColor="@color/Gray"
+                android:textColor="@color/white"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -225,19 +194,38 @@
 
             </TextView>
 
-            <TextView
-                android:id="@+id/Runtime_TextView"
+            <LinearLayout
+                android:id="@+id/box_man"
+                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="0min"
-                android:textColor="@color/Gray"
-                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Title_TextView"
                 app:layout_constraintTop_toBottomOf="@+id/ReleaseDate_TextView">
 
-            </TextView>
+                <TextView
+                    android:id="@+id/Runtime_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 min"
+                    android:textColor="@color/unselect"
+                    android:textSize="14dp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/Genre_TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Genre"
+                    android:textColor="@color/unselect"
+                    android:textSize="14dp">
+
+                </TextView>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ratingLayout"
@@ -245,20 +233,21 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Title_TextView"
-                app:layout_constraintTop_toBottomOf="@+id/Runtime_TextView"
+                app:layout_constraintTop_toBottomOf="@+id/box_man"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
                 android:visibility="gone">
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:src="@drawable/ic_star"/>
+                    app:tint="#fec007"
+                    android:src="@drawable/star"/>
 
                 <TextView
                     android:id="@+id/rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginStart="5dp"
                     android:layout_gravity="center_vertical"
                     android:text="0"
                     android:textAlignment="gravity"
@@ -286,20 +275,45 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/Genre_TextView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Genre"
-                android:textColor="@color/Gray"
-                android:textSize="15dp"
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/playLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="280dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/yellow"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/Title_TextView"
-                app:layout_constraintTop_toBottomOf="@+id/ratingLayout">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            </TextView>
+                <LinearLayout
+                    android:id="@+id/Play_Movie"
+                    android:layout_width="match_parent"
+                    android:paddingVertical="7dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:tint="@color/black"
+                        android:src="@drawable/play" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Play"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="match_parent"
@@ -309,8 +323,8 @@
                 android:layout_marginEnd="15dp"
                 android:text="Overview"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
+                android:fontFamily="@font/baloo2_semibold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -324,7 +338,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:text="---"
-                android:textColor="@color/Gray"
+                android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -335,12 +349,10 @@
                 android:id="@+id/cardView14"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
-                android:foreground="@drawable/movie_details_line_bg"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/playLayout" />
@@ -349,12 +361,10 @@
                 android:id="@+id/cardView15"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="65dp"
-                android:layout_marginEnd="10dp"
-                android:foreground="@drawable/movie_details_line_bg"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView14" />
@@ -365,7 +375,6 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 app:layout_constraintBottom_toTopOf="@+id/cardView15"
@@ -376,13 +385,13 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/Screen_Background"
+                    android:backgroundTint="@color/ad_box"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:backgroundTint="@color/Screen_Background"
+                        android:backgroundTint="@color/ad_box"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent">
@@ -390,8 +399,9 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/Trailer_Layout"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginRight="15dp"
                             android:clickable="true"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/Favourite_Layout"
@@ -400,9 +410,11 @@
 
                             <ImageView
                                 android:id="@+id/Trailer_Icon"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:src="@drawable/trailer_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/trailer"
                                 app:layout_constraintBottom_toTopOf="@+id/textView1301"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -414,7 +426,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Trailer"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                anndroid:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -425,6 +438,7 @@
                             android:id="@+id/Favourite_Layout"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
                             android:layout_weight="1"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/downloadLayout"
@@ -432,9 +446,11 @@
 
                             <ImageView
                                 android:id="@+id/Favourite_Icon"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:src="@drawable/heart_favorite"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/heart"
                                 app:layout_constraintBottom_toTopOf="@+id/textView1300"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -446,7 +462,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Favourite"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                anndroid:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -457,6 +474,7 @@
                             android:id="@+id/downloadLayout"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_marginRight="15dp"
                             android:layout_weight="1"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/Share_IMG_Btn"
@@ -464,9 +482,11 @@
 
                             <ImageView
                                 android:id="@+id/Download_Icon"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:src="@drawable/download_icon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/downloads"
                                 app:layout_constraintBottom_toTopOf="@+id/textView13"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -478,7 +498,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Download"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                anndroid:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -496,9 +517,11 @@
 
                             <ImageView
                                 android:id="@+id/imageView40"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:src="@drawable/share_arrow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/share"
                                 app:layout_constraintBottom_toTopOf="@+id/textView130"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -510,7 +533,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Share"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                anndroid:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -560,21 +584,21 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/castLayoutColorBar"
-                        android:layout_width="5dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/Red_Smooth"
+                        android:layout_width="4dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/divider"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="10dp"
                         android:text="Top cast"
                         android:textAlignment="viewStart"
                         android:textColor="@color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_semibold" />
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/castListRecyclerView"
@@ -603,9 +627,9 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/reletedContentLayoutColorBar"
-                        android:layout_width="5dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/Red_Smooth"
+                        android:layout_width="4dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/divider"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 
@@ -613,11 +637,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:text="Releted Contents"
+                        android:text="Related Contents"
                         android:textAlignment="viewStart"
                         android:textColor="@color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_semibold" />
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView

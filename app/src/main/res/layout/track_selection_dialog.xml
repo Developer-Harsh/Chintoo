@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/Gray_Smooth">
+    android:background="@color/bottomNavigation">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/track_selection_dialog_view_pager"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             app:tabGravity="fill"
             app:tabMode="fixed"
-            android:background="@color/Red_Smooth"/>
+            android:background="@color/ad_box"/>
 
     </androidx.viewpager.widget.ViewPager>
 
@@ -33,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@android:string/cancel"
+            android:fontFamily="@font/baloo2_semibold"
             style="?android:attr/borderlessButtonStyle"/>
 
         <Button
@@ -40,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@android:string/ok"
+            android:fontFamily="@font/baloo2_semibold"
             style="?android:attr/borderlessButtonStyle"/>
 
     </LinearLayout>

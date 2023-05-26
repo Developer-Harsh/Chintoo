@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="@font/baloo2_semibold"
         android:letterSpacing="-0.01"
         android:lineSpacingExtra="4sp"
         android:text="Join today FREE. \nUpgrade or Cancel at anytime"

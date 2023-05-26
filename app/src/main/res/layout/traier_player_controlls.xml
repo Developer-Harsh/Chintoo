@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
     android:layoutDirection="ltr"
-
     android:orientation="vertical"
     tools:targetApi="28">
 
@@ -21,9 +20,9 @@
 
         <ImageButton
             android:id="@id/exo_rew"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/ic_replay_10_white"
+            app:srcCompat="@drawable/replay"
             android:layout_marginRight="8dp"
             android:background="@null"/>
 
@@ -42,16 +41,16 @@
 
         <ImageButton
             android:id="@id/exo_play"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/play_button_icon"
+            app:srcCompat="@drawable/play_circle"
             android:background="@null"/>
 
         <ImageButton
             android:id="@id/exo_pause"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/ic_pause_white"
+            app:srcCompat="@drawable/pause_circle"
             android:background="@null"/>
 
 
@@ -74,10 +73,10 @@
 
         <ImageButton
             android:id="@id/exo_ffwd"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginLeft="8dp"
-            app:srcCompat="@drawable/ic_forward_10_white"
+            android:src="@drawable/forward"
             android:background="@null"/>
 
     </LinearLayout>
@@ -106,6 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="10"
+            android:fontFamily="@font/baloo2_semibold"
             android:textSize="12sp"
             android:layout_marginEnd="8dp"
             android:textColor="@color/white"/>
@@ -120,20 +120,19 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:background="#CC000000"
+        android:background="#B9080912"
         android:padding="8dp"
         >
-
 
         <TextView
             android:id="@+id/live_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Live TV"
+            android:text="Live"
             android:textColor="@color/white"
-            android:textStyle="bold"
+            android:fontFamily="@font/baloo2_bold"
             android:gravity="center_vertical"
-            android:drawableStart="@drawable/ic_fiber_manual_record_red"
+            android:drawableStart="@drawable/live_icon"
             android:drawablePadding="5dp"
             android:visibility="gone"
             android:layout_weight="1"
@@ -152,8 +151,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textStyle="bold"
                 android:paddingLeft="4dp"
+                android:fontFamily="@font/baloo2_semibold"
                 android:paddingRight="4dp"
                 android:includeFontPadding="false"
                 android:textColor="#FFBEBEBE"/>
@@ -163,8 +162,8 @@
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
                 android:layout_height="26dp"
-                app:played_color="@color/Red_Smooth"
-                app:buffered_color="@color/Gray_Smooth"
+                app:played_color="@color/yellow"
+                app:buffered_color="@color/unselect"
                 app:scrubber_enabled_size="0dp"
                 app:scrubber_dragged_size="0dp"
                 app:scrubber_disabled_size="0dp"/>
@@ -174,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/baloo2_semibold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:includeFontPadding="false"
@@ -184,10 +183,11 @@
 
         <ImageView
             android:id="@+id/img_full_scr"
-            app:srcCompat="@drawable/ic_baseline_fullscreen_24"
+            app:srcCompat="@drawable/fullscreen"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="5dp"
+            android:tint="@color/white"
             android:clickable="true"/>
 
     </LinearLayout>

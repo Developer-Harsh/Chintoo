@@ -5,19 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Maintenance"
-    android:background="@color/Orange_Smooth">
+    android:background="@color/bottomNavigation">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/under_maintenance" />
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/textView14"
@@ -27,9 +27,8 @@
         android:fontFamily="@font/baloo2_extrabold"
         android:gravity="center"
         android:text="Under Maintenance!"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold"
+        android:textColor="@color/yellow"
+        android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/animationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,12 +38,11 @@
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/baloo2_bold"
         android:gravity="center"
         android:text="Please Keep Patience"
-        android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textColor="@color/unselect"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,9 +54,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo2_medium"
         android:gravity="center"
-        android:text="we will be Back Soon"
+        android:text="we will get Back to you Soon"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
