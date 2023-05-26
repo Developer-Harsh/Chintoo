@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Screen_Background">
+    android:background="@color/bg">
 
 
     <androidx.core.widget.NestedScrollView
@@ -25,26 +25,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/firstLetterOfTitle"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
                         android:text="S"
                         android:textAlignment="viewEnd"
-                        android:fontFamily="sans-serif-black"
-                        android:textColor="@color/Red_Smooth"
+                        android:fontFamily="@font/manrope_bold"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
                         android:textSize="30sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,13 +54,14 @@
 
                     <TextView
                         android:id="@+id/User_Title"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-black"
-                        android:text="ubscriptions"
-                        android:textAlignment="viewEnd"
+                        android:fontFamily="@font/manrope_bold"
+                        android:text="Subscriptions"
+                        android:gravity="center_horizontal"
+
                         android:textColor="@color/white"
-                        android:textSize="30sp"
+                        android:textSize="28sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/firstLetterOfTitle"
@@ -72,7 +74,7 @@
                     android:id="@+id/Coupan_Item"
                     android:layout_width="35dp"
                     android:layout_height="25dp"
-                    android:background="@drawable/comment_tag_bg"
+                    android:background="@color/bg"
                     android:gravity="center"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -83,17 +85,21 @@
                         android:id="@+id/Subscription_item_bg"
                         android:layout_width="15dp"
                         android:layout_height="25dp"
-                        android:src="@drawable/coupon" />
+                        android:visibility="gone"
+                        android:src="@drawable/coupon"
+                        app:tint="@color/white" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
+                    android:visibility="gone"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:text="Get Your Subscription"
                     android:textAlignment="textStart"
-                    android:textColor="@color/Gray_Smooth"
+                    android:fontFamily="@font/manrope"
+                    android:textColor="@color/white"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -121,92 +127,112 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-black"
-                        android:text="Why Upgrade \nto Premium?"
+                        android:fontFamily="@font/manrope_bold"
+                        android:text="Why Upgrade to Premium?"
                         android:textColor="@color/white"
                         android:textSize="25sp"
                         android:textStyle="bold" />
 
-                    <LinearLayout
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
-                        android:orientation="vertical">
+                        android:layout_marginHorizontal="20dp"
+                        app:cardCornerRadius="30dp"
+
+                        android:backgroundTint="@color/bottomNavigation">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginStart="10dp">
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/tick"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Get Access to All Contents"
-                                android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:layout_marginStart="10dp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginStart="10dp">
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/tick"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Remove All Ads"
-                                android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:layout_marginStart="10dp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginStart="10dp">
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/tick"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Watch Premium Contents"
-                                android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:layout_marginStart="10dp"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:gravity="center_vertical"
-                            android:layout_marginStart="10dp">
-                            <ImageView
-                                android:layout_width="22dp"
-                                android:layout_height="22dp"
-                                android:src="@drawable/tick"/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Download Premium Contents"
-                                android:textColor="@color/white"
-                                android:textStyle="bold"
-                                android:textSize="18sp"
-                                android:layout_marginStart="10dp"/>
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:padding="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="10dp">
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/tick"
+                                    app:tint="@color/white" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Get Access to All Contents"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:layout_marginStart="10dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="10dp">
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:src="@drawable/tick"
+                                    app:tint="@color/white"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Remove All Ads"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:layout_marginStart="10dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="10dp">
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    app:tint="@color/white"
+                                    android:src="@drawable/tick"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Watch Premium Contents"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:layout_marginStart="10dp"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="10dp">
+                                <ImageView
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    app:tint="@color/white"
+                                    android:src="@drawable/tick"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Download Premium Contents"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold"
+                                    android:textSize="18sp"
+                                    android:layout_marginStart="10dp"/>
+                            </LinearLayout>
+
                         </LinearLayout>
 
-                    </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
                 </LinearLayout>
 
             </LinearLayout>

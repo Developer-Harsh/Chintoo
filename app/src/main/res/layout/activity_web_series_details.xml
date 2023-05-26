@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Screen_Background"
+    android:background="@color/bg"
     tools:context=".WebSeriesDetails"
     android:id="@+id/webSeries_details">
 
@@ -45,7 +45,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="top"
-                            android:background="@drawable/banner_gradiant"
+                            android:background="@color/bg"
                             app:layout_constraintBottom_toTopOf="@+id/guideline10"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -56,13 +56,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="bottom"
-                            android:background="@drawable/banner_gradiant"
+                            android:background="@color/bg"
                             android:rotation="180"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
 
                     </LinearLayout>
                 </FrameLayout>
@@ -73,7 +72,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="280dp"
-                    android:backgroundTint="@color/Red_Smooth"
+                    android:backgroundTint="@color/bottomNavigation"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="8dp"
@@ -92,14 +91,14 @@
                     android:rotation="180"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/advance_arrow" />
+                    app:srcCompat="@drawable/arrow_right" />
 
                 <LinearLayout
                     android:id="@+id/reportButton"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/report_item_bg"
+                    android:background="@drawable/block"
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -107,7 +106,7 @@
                     <ImageView
                         android:layout_width="13dp"
                         android:layout_height="13dp"
-                        android:src="@drawable/info"
+                        android:src="@drawable/info_circle"
                         android:layout_marginStart="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -125,7 +124,7 @@
                     android:layout_width="35dp"
                     android:layout_height="25dp"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/comment_tag_bg"
+                    android:background="@color/bg"
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/reportButton"
@@ -134,7 +133,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/ic_message" />
+                        android:src="@drawable/message" />
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
@@ -164,7 +163,7 @@
                             android:layout_width="35dp"
                             android:layout_height="25dp"
                             android:layout_marginTop="20dp"
-                            android:background="@drawable/premium_tag_bg"
+                            android:background="@color/bg"
                             android:gravity="center"
                             android:visibility="gone"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -200,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="0000-00-00"
-                    android:textColor="@color/Gray"
+                    android:textColor="@color/white"
                     android:textSize="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -222,7 +221,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/ic_star"/>
+                        android:src="@drawable/star"/>
 
                     <TextView
                         android:id="@+id/rating"
@@ -242,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Genre"
-                    android:textColor="@color/Gray"
+                    android:textColor="@color/white"
                     android:textSize="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -274,7 +273,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:text="---"
-                    android:textColor="@color/Gray"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -288,7 +287,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="10dp"
-                    android:foreground="@drawable/movie_details_line_bg"
+                    android:foreground="@color/bg"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -302,7 +301,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="65dp"
                     android:layout_marginEnd="10dp"
-                    android:foreground="@drawable/movie_details_line_bg"
+                    android:foreground="@color/bg"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -326,7 +325,7 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:backgroundTint="@color/Screen_Background"
+                        android:backgroundTint="@color/bg"
                         android:orientation="horizontal">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -373,7 +372,7 @@
                                 android:id="@+id/Favourite_Icon"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:src="@drawable/heart_favorite"
+                                android:src="@drawable/heart"
                                 app:layout_constraintBottom_toTopOf="@+id/textView1300"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -404,7 +403,7 @@
                                 android:id="@+id/imageView40"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:src="@drawable/share_arrow"
+                                android:src="@drawable/share"
                                 app:layout_constraintBottom_toTopOf="@+id/textView130"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -435,7 +434,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/season_spinner_bg"
+                    android:background="@color/bg"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp">
                     <com.jaredrummler.materialspinner.MaterialSpinner
@@ -448,7 +447,7 @@
                         android:layout_marginBottom="4dp"
                         app:ms_arrow_tint="@color/white"
                         app:ms_text_color="@color/white"
-                        app:ms_background_color="@color/Screen_Background"
+                        app:ms_background_color="@color/bg"
                         android:visibility="gone"/>
                 </LinearLayout>
 
@@ -480,7 +479,7 @@
                         android:id="@+id/castLayoutColorBar"
                         android:layout_width="5dp"
                         android:layout_height="40dp"
-                        android:backgroundTint="@color/Red_Smooth"
+                        android:backgroundTint="@color/bg"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 
@@ -536,7 +535,7 @@
                         android:id="@+id/reletedContentLayoutColorBar"
                         android:layout_width="5dp"
                         android:layout_height="40dp"
-                        android:backgroundTint="@color/Red_Smooth"
+                        android:backgroundTint="@color/bg"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 
@@ -603,6 +602,6 @@
         android:visibility="gone"
         app:snowflakeSizeMin="5dp"
         app:snowflakeSizeMax="20dp"
-        app:snowflakeImage="@drawable/snowflake"/>
+        app:snowflakeImage="@drawable/logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
