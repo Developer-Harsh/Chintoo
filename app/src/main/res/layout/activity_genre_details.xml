@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
-
+    android:background="@drawable/background">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
@@ -37,6 +37,7 @@
                         android:id="@+id/constraintLayout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -59,10 +60,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="0dp"
-                            android:fontFamily="@font/manrope_semibold"
+                            android:fontFamily="sans-serif-black"
                             android:text="Genre"
                             android:textAlignment="viewEnd"
-                            android:textColor="@color/white"
+                            android:textColor="@color/yellow"
                             android:textSize="30sp"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -75,11 +76,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:fontFamily="@font/manrope"
                         android:text="Explore Your Favourite Genre"
                         android:textAlignment="textStart"
                         android:textColor="@color/white"
                         android:textSize="14sp"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -96,7 +97,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/genreContentsRecylerView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

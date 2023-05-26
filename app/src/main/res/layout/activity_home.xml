@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
+    tools:context=".Home"
+    android:background="@drawable/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,13 +40,17 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bottomNavigation"
-        app:itemIconTint="@color/unselect"
-        app:itemRippleColor="@color/select"
-        app:itemTextColor="@color/unselect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="40dp"
+        android:padding="5dp"
+        android:background="@drawable/toolbar_bg"
+        app:backgroundTint="@color/bottomNavigation"
+        app:elevation="25dp"
+        app:itemIconTint="@color/bottom_navigaton_tint"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_navigation" />
 
     <com.jetradarmobile.snowfall.SnowfallView

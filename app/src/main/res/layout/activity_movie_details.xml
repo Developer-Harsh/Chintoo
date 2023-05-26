@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@drawable/background"
     tools:context=".MovieDetails"
     android:id="@+id/movie_details">
 
@@ -217,7 +217,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="0000-00-00"
-                android:textColor="@color/white"
+                android:textColor="@color/Gray"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -231,7 +231,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="0min"
-                android:textColor="@color/white"
+                android:textColor="@color/Gray"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -292,7 +292,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Genre"
-                android:textColor="@color/white"
+                android:textColor="@color/Gray"
                 android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -324,7 +324,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="15dp"
                 android:text="---"
-                android:textColor="@color/white"
+                android:textColor="@color/Gray"
                 android:textSize="15sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -376,7 +376,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:backgroundTint="@color/bg"
+                    android:backgroundTint="@color/Screen_Background"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -562,7 +562,7 @@
                         android:id="@+id/castLayoutColorBar"
                         android:layout_width="5dp"
                         android:layout_height="40dp"
-                        android:backgroundTint="@color/white"
+                        android:backgroundTint="@color/Red_Smooth"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 

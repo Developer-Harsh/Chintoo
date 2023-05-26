@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg">
+    tools:context=".Downloads"
+    android:background="@drawable/background">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -31,6 +33,7 @@
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +44,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:text="Your"
-                        android:fontFamily="@font/manrope_semibold"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/white"
                         android:textSize="30sp"
@@ -56,9 +58,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:text="Downloads"
-                        android:fontFamily="@font/manrope_semibold"
                         android:textAlignment="viewEnd"
-                        android:textColor="@color/white"
+                        android:textColor="@color/yellow"
                         android:textSize="30sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,19 +73,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:text="Explore Your Downloads"
-                    android:fontFamily="@font/manrope"
                     android:textAlignment="textStart"
                     android:textColor="@color/white"
                     android:textSize="14sp"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
                 <LinearLayout
                     android:id="@+id/settingItem"
-                    android:layout_width="35dp"
-                    android:layout_height="25dp"
-                    android:background="@color/bg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/toolbar_bg"
                     android:gravity="center"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="15dp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -92,11 +95,12 @@
 
                     <ImageView
                         android:id="@+id/Subscription_item_bg"
-                        android:layout_width="35dp"
+                        android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_marginEnd="5dp"
+                        android:tint="@color/white"
                         android:src="@drawable/settings" />
                 </LinearLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Space
@@ -111,12 +115,12 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-<!--    <com.airbnb.lottie.LottieAnimationView-->
-<!--        android:id="@+id/animationView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:lottie_rawRes="@raw/empty"-->
-<!--        app:lottie_autoPlay="true"-->
-<!--        app:lottie_loop="true"/>-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
