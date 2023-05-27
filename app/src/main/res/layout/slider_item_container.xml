@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/ImageSlider"
-        app:riv_corner_radius="12dp"
+        app:riv_corner_radius="18dp"
         android:adjustViewBounds="true"/>
 
     <TextView

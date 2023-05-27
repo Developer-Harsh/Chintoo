@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        android:text="@string/Hello"
+        android:text="Join"
+        android:fontFamily="@font/man_bold"
         android:textColor="@color/white"
         android:textSize="30dp"
-        android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/Guest"
-        android:textColor="@color/Red_Smooth"
+        android:fontFamily="@font/man_bold"
+        android:text="Chintoo"
+        android:textColor="#715DB5"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textView1"
@@ -40,7 +40,8 @@
         android:layout_marginStart="15dp"
         android:text="@string/Please_Enter_Your_Details_To_Join_Our_Community"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:fontFamily="@font/man_medium"
+        android:textSize="14dp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +50,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView10"
         android:layout_width="350dp"
-        android:layout_height="65dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/w_Dark"
+        android:backgroundTint="@color/toolbar"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
@@ -66,12 +67,12 @@
             <TextView
                 android:id="@+id/textView60"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="Full Name"
+                android:fontFamily="@font/man_medium"
                 android:textColor="@color/Non_Selected"
-                android:textSize="15sp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,8 +128,9 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="Email Address"
+                android:fontFamily="@font/man_medium"
                 android:textColor="@color/Non_Selected"
-                android:textSize="15sp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
