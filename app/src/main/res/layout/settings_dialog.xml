@@ -167,8 +167,8 @@
                     app:trackCornerRadius="7dp"
                     app:showDelay="100"
                     app:hideAnimationBehavior="outward"
-                    app:trackColor="@color/Gray_Smooth"
-                    app:indicatorColor="@color/Red_Smooth"
+                    app:trackColor="@color/unselect"
+                    app:indicatorColor="@color/yellow"
                     android:progress="0"/>
                 <Space
                     android:layout_width="match_parent"
@@ -189,8 +189,8 @@
                                 android:layout_width="10dp"
                                 android:layout_height="10dp"
                                 android:layout_marginTop="5dp"
-                                android:background="@drawable/dot_circle"
-                                android:backgroundTint="@color/Gray_Smooth"
+                                android:background="@drawable/toolbar_bg"
+                                android:backgroundTint="@color/unselect"
                                 android:orientation="horizontal"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -234,8 +234,8 @@
                                 android:layout_width="10dp"
                                 android:layout_height="10dp"
                                 android:layout_marginTop="5dp"
-                                android:background="@drawable/dot_circle"
-                                android:backgroundTint="@color/Red_Smooth"
+                                android:background="@drawable/toolbar_bg"
+                                android:backgroundTint="@color/unselect"
                                 android:orientation="horizontal"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />

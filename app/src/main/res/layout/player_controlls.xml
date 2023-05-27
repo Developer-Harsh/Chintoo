@@ -6,7 +6,7 @@
     android:layout_gravity="bottom"
     android:layoutDirection="ltr"
     android:orientation="vertical"
-    android:background="@drawable/player_bg">
+    android:background="@drawable/background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
@@ -22,15 +22,15 @@
 
             <ImageView
                 android:id="@+id/Back_btn_img"
-                android:layout_width="45dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:clickable="true"
-                android:rotation="180"
+                android:tint="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/advance_arrow" />
+                app:srcCompat="@drawable/left" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,8 +39,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:orientation="vertical"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp">
             <TextView
                 android:id="@+id/contentFirstName"
                 android:layout_width="wrap_content"
@@ -85,11 +85,11 @@
             android:text="Skip Intro"
             android:textColor="@color/white"
             android:textSize="15sp"
-            app:backgroundTint="@android:color/transparent"
+            app:backgroundTint="@color/bottomNavigation"
             app:cornerRadius="8dp"
             app:rippleColor="#33AAAAAA"
-            app:strokeColor="@color/white"
-            app:strokeWidth="2dp"
+            app:strokeColor="@color/ad_box"
+            app:strokeWidth="1.3dp"
             android:visibility="gone"/>
     </LinearLayout>
 
@@ -105,9 +105,10 @@
 
         <ImageButton
             android:id="@id/exo_rew"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/ic_replay_10_white"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/replay"
             android:layout_marginRight="8dp"
             android:background="@null"/>
 
@@ -126,16 +127,18 @@
 
         <ImageButton
             android:id="@id/exo_play"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/play_button_icon"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/play_circle"
             android:background="@null"/>
 
         <ImageButton
             android:id="@id/exo_pause"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
-            app:srcCompat="@drawable/ic_pause_white"
+            android:tint="@color/white"
+            app:srcCompat="@drawable/pause_circle"
             android:background="@null"/>
 
 
@@ -158,10 +161,11 @@
 
         <ImageButton
             android:id="@id/exo_ffwd"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="70dp"
+            android:tint="@color/white"
             android:layout_marginLeft="8dp"
-            app:srcCompat="@drawable/ic_forward_10_white"
+            app:srcCompat="@drawable/forward"
             android:background="@null"/>
 
     </LinearLayout>
@@ -183,7 +187,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_baseline_wb_sunny_24"
+                android:tint="@color/white"
+                android:src="@drawable/brightness"
                 app:layout_constraintBottom_toTopOf="@+id/brightness"
                 app:layout_constraintEnd_toEndOf="@+id/brightness"
                 app:layout_constraintStart_toStartOf="@+id/brightness" />
@@ -194,7 +199,7 @@
                 android:layout_height="110dp"
                 android:layout_alignParentStart="true"
                 android:layout_gravity="center"
-                app:backgroundColor="@color/color_background"
+                app:backgroundColor="@color/ad_box"
                 app:cornerRadius="10dp"
                 app:defaultValue="0"
                 app:imageEnabled="false"
@@ -223,6 +228,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginBottom="10dp"
+                android:tint="@color/white"
                 android:src="@drawable/ic_vol_unmute"
                 app:layout_constraintBottom_toTopOf="@+id/volume"
                 app:layout_constraintEnd_toEndOf="@+id/volume"
@@ -235,7 +241,7 @@
                 android:layout_height="110dp"
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="center"
-                app:backgroundColor="@color/color_background"
+                app:backgroundColor="@color/ad_box"
                 app:cornerRadius="10dp"
                 app:defaultValue="0"
                 app:imageEnabled="false"
@@ -267,11 +273,11 @@
             android:text="Playing Next In"
             android:textColor="@color/white"
             android:textSize="15sp"
-            app:backgroundTint="@android:color/transparent"
+            app:backgroundTint="@color/bottomNavigation"
             app:cornerRadius="8dp"
             app:rippleColor="#33AAAAAA"
-            app:strokeColor="@color/white"
-            app:strokeWidth="2dp"
+            app:strokeColor="@color/ad_box"
+            app:strokeWidth="1.3dp"
             android:visibility="gone"/>
     </LinearLayout>
 
@@ -298,7 +304,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
-                android:drawableStart="@drawable/ic_fiber_manual_record_red"
+                android:drawableStart="@drawable/live_icon"
                 android:drawablePadding="5dp"
                 android:visibility="gone"
                 android:layout_weight="1"
@@ -308,8 +314,9 @@
                 android:id="@+id/Live_logo"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/live"
+                android:src="@drawable/livetv"
                 android:scaleType="centerCrop"
+                android:tint="@color/white"
                 android:visibility="gone"/>
 
             <LinearLayout
@@ -339,8 +346,8 @@
                     android:layout_width="wrap_content"
                     android:layout_weight="1"
                     android:layout_height="26dp"
-                    app:played_color="@color/Red_Smooth"
-                    app:buffered_color="@color/Gray_Smooth"
+                    app:played_color="@color/yellow"
+                    app:buffered_color="@color/unselect"
                     app:scrubber_enabled_size="10dp"
                     app:scrubber_dragged_size="15dp"
                     app:scrubber_disabled_size="10dp"
@@ -377,8 +384,9 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/img_Brightness"
-                    app:srcCompat="@drawable/ic_baseline_wb_sunny_24"
+                    app:srcCompat="@drawable/brightness"
                     android:layout_width="35dp"
+                    android:tint="@color/white"
                     android:layout_height="35dp"
                     android:padding="5dp"
                     android:clickable="true"/>
@@ -401,9 +409,10 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/playerSpeed"
-                    app:srcCompat="@drawable/ic_baseline_watch"
+                    app:srcCompat="@drawable/playback"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:tint="@color/white"
                     android:padding="5dp"
                     android:clickable="true" />
                 <TextView
@@ -425,9 +434,10 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/img_settings"
-                    app:srcCompat="@drawable/ic_baseline_settings"
+                    app:srcCompat="@drawable/settings"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:tint="@color/white"
                     android:padding="5dp"
                     android:clickable="true" />
                 <TextView
@@ -449,10 +459,11 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/img_full_scr"
-                    app:srcCompat="@drawable/ic_baseline_fullscreen_24"
+                    app:srcCompat="@drawable/fullscreen"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:padding="5dp"
+                    android:tint="@color/white"
                     android:clickable="true"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -473,9 +484,10 @@
                 android:layout_weight="1">
                 <ImageView
                     android:id="@+id/img_Volume"
-                    app:srcCompat="@drawable/ic_baseline_volume_up_24"
+                    app:srcCompat="@drawable/volume"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:tint="@color/white"
                     android:padding="5dp"
                     android:clickable="true"/>
                 <TextView

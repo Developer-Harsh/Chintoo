@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView1"
@@ -13,7 +12,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
         android:text="Join"
-        android:fontFamily="@font/man_bold"
+        android:fontFamily="@font/baloo2_bold"
         android:textColor="@color/white"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/man_bold"
+        android:fontFamily="@font/baloo2_bold"
         android:text="Chintoo"
         android:textColor="#715DB5"
         android:textSize="30dp"
@@ -40,7 +39,7 @@
         android:layout_marginStart="15dp"
         android:text="@string/Please_Enter_Your_Details_To_Join_Our_Community"
         android:textColor="@color/white"
-        android:fontFamily="@font/man_medium"
+        android:fontFamily="@font/baloo2_medium"
         android:textSize="14dp"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
@@ -70,8 +69,8 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="Full Name"
-                android:fontFamily="@font/man_medium"
-                android:textColor="@color/Non_Selected"
+                android:fontFamily="@font/baloo2_medium"
+                android:textColor="@color/unselect"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -80,12 +79,13 @@
                 android:id="@+id/signup_fullname_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="5dp"
                 android:layout_marginStart="10dp"
-                android:backgroundTint="@color/w_Dark"
+                android:background="@null"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@drawable/white_cursor"
+                android:textCursorDrawable="@drawable/backspace"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"
@@ -94,8 +94,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/signup_fullname_buttom_bar"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:backgroundTint="@color/w_Dark"
+                android:layout_height="2dp"
+                android:backgroundTint="@color/divider"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -108,7 +108,7 @@
         android:layout_height="65dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/w_Dark"
+        android:backgroundTint="@color/toolbar"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
@@ -128,8 +128,8 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="Email Address"
-                android:fontFamily="@font/man_medium"
-                android:textColor="@color/Non_Selected"
+                android:fontFamily="@font/baloo2_medium"
+                android:textColor="@color/unselect"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -139,11 +139,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:backgroundTint="@color/w_Dark"
+                android:background="@null"
+                android:paddingVertical="5dp"
                 android:ems="10"
+
+                android:fontFamily="@font/baloo2_medium"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@drawable/white_cursor"
+                android:textCursorDrawable="@drawable/backspace"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"
@@ -152,8 +155,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/signup_email_bottombar"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:backgroundTint="@color/w_Dark"
+                android:layout_height="2dp"
+                android:backgroundTint="@color/divider"
                 app:layout_constraintBottom_toBottomOf="@+id/signup_editTextTextEmailAddress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -166,7 +169,7 @@
         android:layout_height="65dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/w_Dark"
+        android:backgroundTint="@color/toolbar"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView11"
@@ -186,7 +189,9 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
                 android:text="Password"
-                android:textColor="@color/Non_Selected"
+                android:textColor="@color/unselect"
+
+                android:fontFamily="@font/baloo2_medium"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -196,11 +201,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:backgroundTint="@color/w_Dark"
+                android:background="@null"
+                android:paddingVertical="5dp"
+
+                android:fontFamily="@font/baloo2_medium"
                 android:ems="10"
                 android:inputType="textPassword"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@drawable/white_cursor"
+                android:textCursorDrawable="@drawable/backspace"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"
@@ -209,8 +217,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/signup_password_bottombar"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:backgroundTint="@color/w_Dark"
+                android:layout_height="2dp"
+                android:backgroundTint="@color/divider"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -222,7 +230,7 @@
         android:layout_width="350dp"
         android:layout_height="65dp"
         android:layout_marginTop="5dp"
-        android:backgroundTint="@color/w_Dark"
+        android:backgroundTint="@color/toolbar"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
@@ -240,8 +248,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="3dp"
+
+                android:fontFamily="@font/baloo2_medium"
                 android:text="Confirm Password"
-                android:textColor="@color/Non_Selected"
+                android:textColor="@color/unselect"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -251,11 +261,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:backgroundTint="@color/w_Dark"
+                android:background="@null"
                 android:ems="10"
+                android:paddingVertical="5dp"
                 android:inputType="textPassword"
+
+                android:fontFamily="@font/baloo2_medium"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@drawable/white_cursor"
+                android:textCursorDrawable="@drawable/backspace"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.503"
@@ -264,8 +277,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/signup_confirm_password_bottombar"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:backgroundTint="@color/w_Dark"
+                android:layout_height="2dp"
+                android:backgroundTint="@color/divider"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -287,6 +300,8 @@
             android:text="By Signingup You're agree to Our"
             android:textColor="@color/white"
             android:textSize="12sp"
+
+                android:fontFamily="@font/baloo2_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -297,7 +312,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:text="Terms of Use"
-            android:textColor="@color/Red_Smooth"
+
+                android:fontFamily="@font/baloo2_medium"
+            android:textColor="#7F78E1"
             android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/textView11"
             app:layout_constraintTop_toTopOf="@+id/textView11" />
@@ -307,6 +324,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="and"
+
+                android:fontFamily="@font/baloo2_medium"
             android:textColor="@color/white"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/textView600"
@@ -319,7 +338,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="Privecy Policy"
-            android:textColor="@color/Red_Smooth"
+            android:textColor="#7F78E1"
+
+                android:fontFamily="@font/baloo2_medium"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/textView11"
             app:layout_constraintTop_toTopOf="@+id/textView11" />
@@ -342,31 +363,49 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Signup_Button"
-        android:layout_width="70dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/Deep_Red"
+        android:backgroundTint="@color/yellow"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
         android:focusable="true">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/advance_arrow" />
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="Register"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:fontFamily="@font/baloo2_bold" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/black"
+                app:srcCompat="@drawable/right" />
+
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/signup_line"
         android:layout_width="200dp"
         android:layout_height="2dp"
-        android:backgroundTint="@color/Red_Smooth"
+        android:backgroundTint="@color/yellow"
         app:cardCornerRadius="10dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
@@ -409,7 +448,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                app:lottie_rawRes="@raw/google"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 android:padding="5dp" />
@@ -430,6 +468,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

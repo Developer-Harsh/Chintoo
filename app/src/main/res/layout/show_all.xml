@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="120dp"
     android:layout_height="200dp"
-    android:backgroundTint="@color/Screen_Background"
-    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/ad_box"
+    app:cardCornerRadius="18dp"
     app:cardElevation="0dp"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
@@ -23,11 +23,14 @@
             android:id="@+id/showAllText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Show All"
-            android:textColor="@color/Red_Smooth"
+            android:text="More"
+            android:textColor="#A2A9E6"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/baloo2_medium"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/toolbar_bg"
+            android:backgroundTint="@color/divider"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,11 +38,12 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="30dp"
+            android:tint="#A2A9E6"
             android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/showAllText"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/circled_right" />
+            app:srcCompat="@drawable/right" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

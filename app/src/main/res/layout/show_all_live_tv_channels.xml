@@ -4,10 +4,10 @@
     android:id="@+id/show_all_live_tv_channels"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="200dp"
-    android:layout_height="140dp"
-    app:cardCornerRadius="10dp"
-    android:backgroundTint="@color/Screen_Background"
+    android:layout_width="120dp"
+    android:layout_height="70dp"
+    app:cardCornerRadius="18dp"
+    android:backgroundTint="@color/ad_box"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginTop="5dp"
@@ -22,26 +22,33 @@
             android:id="@+id/showAllText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show All"
-            android:textColor="@color/Red_Smooth"
+            android:text="More"
+            android:textColor="#A2A9E6"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/baloo2_medium"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/toolbar_bg"
+            android:backgroundTint="@color/divider"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="8dp" />
 
         <Space
-            android:layout_width="12dp"
+            android:layout_width="7dp"
             android:layout_height="match_parent"/>
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:tint="#A2A9E6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView12"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/circled_right" />
+            app:srcCompat="@drawable/right" />
+
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

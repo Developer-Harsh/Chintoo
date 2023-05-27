@@ -24,7 +24,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/top_rounded_bg"
+        android:backgroundTint="@color/bottomNavigation"
+        android:background="@drawable/rounded_bottom_sheet_dialog"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,10 +34,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Payment"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/baloo2_bold"
-                android:textColor="@color/black"
-                android:layout_margin="10dp"/>
+                android:textColor="@color/white"
+                android:layout_margin="17dp"/>
         </LinearLayout>
         <com.nex3z.flowlayout.FlowLayout
             android:id="@+id/flow2"
@@ -52,16 +53,18 @@
                 android:id="@+id/paypalPayment"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="13dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/paypal"/>
+                    android:src="@drawable/paypal" />
 
             </androidx.cardview.widget.CardView>
 
@@ -69,16 +72,18 @@
                 android:id="@+id/razorPay"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="13dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/razorpay"/>
+                    android:src="@drawable/razorpay" />
 
             </androidx.cardview.widget.CardView>
 
@@ -86,16 +91,18 @@
                 android:id="@+id/upi"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="13dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/upi"/>
+                    android:src="@drawable/upi" />
 
             </androidx.cardview.widget.CardView>
 
@@ -103,16 +110,20 @@
                 android:id="@+id/paytm"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="13dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/divider"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/paytm"/>
+                    android:padding="16dp"
+                    android:src="@drawable/paytm" />
 
             </androidx.cardview.widget.CardView>
 
@@ -120,16 +131,20 @@
                 android:id="@+id/flutterwave"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="13dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?selectableItemBackground"
-                android:visibility="gone">
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/divider"
+                app:cardCornerRadius="10dp">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/flutterwave"/>
+                    android:padding="12dp"
+                    android:src="@drawable/flutterwave" />
 
             </androidx.cardview.widget.CardView>
 

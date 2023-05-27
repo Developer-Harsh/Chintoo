@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
@@ -10,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/language_dialog_bg"
+        android:background="@drawable/edittext_bg"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,91 +20,104 @@
                 android:id="@+id/Close"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
                 android:src="@drawable/close"
+                android:padding="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
 
             <ImageView
                 android:id="@+id/Coupan_Dialog_save"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_tick"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:tint="@color/white"
+                android:padding="5dp"
+                android:src="@drawable/check"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp"/>
+            android:layout_height="5dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/languageDialogHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Choose Your \nDisplay Language"
-                android:textColor="@color/white"
                 android:textAlignment="textStart"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="@font/baloo2_bold" />
+
             <TextView
                 android:id="@+id/languageDialogSubHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Please select one"
-                android:textColor="@color/white"
                 android:textAlignment="textStart"
-                android:textStyle="normal"
-                android:textSize="15sp"/>
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
         </LinearLayout>
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp"/>
+            android:layout_height="5dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView_english"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_english"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_english"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="English"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="English"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -113,29 +125,31 @@
                     android:id="@+id/cardView_hindi"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView_bengali"
-                    app:layout_constraintStart_toEndOf="@+id/cardView_english"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cardView_bengali"
+                    app:layout_constraintStart_toEndOf="@+id/cardView_english"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_hindi"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_hindi"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="हिंदी"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="हिंदी"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -143,64 +157,69 @@
                     android:id="@+id/cardView_bengali"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_bengali"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_bengali"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="বাংলা"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="বাংলা"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView_spanish"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_spanish"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_spanish"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="español"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="español"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -208,29 +227,31 @@
                     android:id="@+id/cardView_russian"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView_turkish"
-                    app:layout_constraintStart_toEndOf="@+id/cardView_spanish"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cardView_turkish"
+                    app:layout_constraintStart_toEndOf="@+id/cardView_spanish"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_russian"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_russian"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="русский"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="русский"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -238,65 +259,70 @@
                     android:id="@+id/cardView_turkish"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_turkish"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_turkish"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="Türk"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="Türk"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp">
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView_chaines"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:cardCornerRadius="10dp"
                     android:backgroundTint="@android:color/transparent"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?selectableItemBackground">
+                    android:foreground="?selectableItemBackground"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <LinearLayout
                         android:id="@+id/linearlayout_chaines"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/language_dialog_bg">
+                        android:background="@drawable/edittext_bg">
+
                         <TextView
                             android:id="@+id/textview_chaines"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:text="中国人"
-                            android:gravity="center"
-                            android:textColor="@color/white"
                             android:fontFamily="@font/baloo2_bold"
-                            android:textSize="16sp"/>
+                            android:gravity="center"
+                            android:text="中国人"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
