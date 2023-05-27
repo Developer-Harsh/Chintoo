@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:padding="8dp"
+    android:background="@drawable/edittext_bg">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
@@ -15,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/message_in_a_bottle" />
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/msgTitle"
@@ -23,9 +24,9 @@
         android:layout_height="wrap_content"
         android:text="Subscription Required To Access Premium Contents"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/baloo2_bold"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -34,20 +35,22 @@
         android:layout_height="wrap_content"
         android:text="Visit Website To Buy Premium Access Or Your Code bellow"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:textColor="@color/unselect"
+        android:textSize="14sp"
         android:textStyle="normal"
+        android:fontFamily="@font/baloo2_medium"
         android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/Dialog_Close"
-        android:layout_width="140dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginHorizontal="15dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="20dp"
         android:layout_gravity="end"
-        android:backgroundTint="@color/Red_Smooth"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/yellow"
         android:drawableLeft="@drawable/close"
         android:text="Dismiss"
         android:textAllCaps="false"/>
