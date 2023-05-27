@@ -46,7 +46,7 @@
                         android:text="Selected"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/white"
-                        android:textSize="30sp"
+                        android:textSize="24sp"
                         android:textStyle="normal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -57,11 +57,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:fontFamily="sans-serif-black"
                         android:text="Subscriptions"
                         android:textAlignment="viewEnd"
-                        android:textColor="@color/Red_Smooth"
-                        android:textSize="30sp"
+                        android:textColor="#715DB5"
+                        android:textSize="24sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -75,7 +74,8 @@
                     android:layout_marginStart="15dp"
                     android:text="Get Your Subscription"
                     android:textAlignment="textStart"
-                    android:textColor="@color/Gray_Smooth"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -88,24 +88,22 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    xmlns:tools="http://schemas.android.com/tools"
                     android:id="@+id/Subscription_Item"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="5dp">
+                    android:layout_height="65dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="0dp">
+
                     <ImageView
                         android:id="@+id/Subscription_item_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/subscription_bg"
-                        android:scaleType="fitXY"/>
+                        android:background="@drawable/edittext_bg"
+                        android:scaleType="fitXY" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -120,24 +118,28 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginTop="15dp"
+                                android:fontFamily="@font/baloo2_bold"
                                 android:gravity="start"
                                 android:text="Name"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="16sp"
                                 app:layout_constraintBottom_toTopOf="@+id/Time_TextView"
-                                app:layout_constraintStart_toStartOf="@+id/Time_TextView" />
+                                app:layout_constraintStart_toStartOf="@+id/Time_TextView"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/Time_TextView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginStart="25dp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="22dp"
+                                android:fontFamily="@font/baloo2_medium"
                                 android:gravity="start"
                                 android:text="0 Month"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
+                                android:textSize="14sp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -147,15 +149,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="end"
-                                android:layout_marginEnd="25dp"
+                                android:layout_marginEnd="15dp"
+                                android:fontFamily="@font/baloo2_extrabold"
                                 android:gravity="end"
                                 android:text="$99.99"
-                                android:textColor="@color/white"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                app:layout_constraintBottom_toBottomOf="@+id/Time_TextView"
+                                android:textColor="@color/yellow"
+                                android:textSize="16sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="@+id/Time_TextView" />
+                                app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -173,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-black"
+                        android:fontFamily="@font/baloo2_bold"
                         android:text="Premium Features \nof this Plan!"
                         android:textColor="@color/white"
                         android:textSize="25sp"
@@ -195,13 +197,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Get Access to All Contents"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_bold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -215,13 +218,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Remove All Ads"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_bold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -235,13 +239,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Watch Premium Contents"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_bold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -255,13 +260,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Download Premium Contents"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_bold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -281,7 +287,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="15dp"
         app:cardCornerRadius="20dp"
-        app:cardElevation="15dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/nestedScrollView"
         android:clickable="true">
 
@@ -291,7 +298,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="center"
-            android:background="@drawable/upgrade_to_premium_btn_ripple">
+            android:paddingVertical="9dp"
+            android:background="@drawable/toolbar_bg">
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"

@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="100dp"
     android:layout_height="130dp"
-    android:backgroundTint="@color/w_Dark"
+    android:backgroundTint="@color/bottomNavigation"
     app:cardElevation="0dp"
     app:cardCornerRadius="10dp"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
-    android:layout_marginStart="5dp">
+    android:layout_marginStart="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,9 +23,7 @@
                 android:id="@+id/image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/ic_profile_user"
-                app:riv_border_color="@color/Gray_Smooth"
-                app:riv_border_width="0dip"
+                android:src="@drawable/user"
                 app:riv_corner_radius="30dip"
                 app:riv_mutate_background="true"
                 app:riv_oval="true"
@@ -37,7 +35,7 @@
             android:orientation="vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginTop="0dp"
             android:gravity="center">
             <TextView
@@ -48,6 +46,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
+                android:fontFamily="@font/baloo2_bold"
                 android:textSize="10sp"
                 android:maxLines="1"/>
             <TextView
@@ -57,10 +56,10 @@
                 android:text="Name"
                 android:textAlignment="center"
                 android:textColor="@color/white"
+                android:fontFamily="@font/baloo2_medium"
                 android:textAllCaps="false"
                 android:textSize="13sp"
-                android:maxLines="1"
-                android:textStyle="bold"/>
+                android:maxLines="1"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -45,7 +45,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:layout_gravity="top"
-                            android:background="@drawable/banner_gradiant"
+                            android:visibility="gone"
                             app:layout_constraintBottom_toTopOf="@+id/guideline10"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +54,9 @@
                         <View
                             android:id="@+id/view"
                             android:layout_width="match_parent"
-                            android:layout_height="150dp"
+                            android:layout_height="300dp"
                             android:layout_gravity="bottom"
-                            android:background="@drawable/banner_gradiant"
-                            android:rotation="180"
+                            android:background="@drawable/fade_gradiant"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +72,7 @@
                     android:layout_height="0dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="280dp"
-                    android:backgroundTint="@color/Red_Smooth"
+                    android:backgroundTint="@color/yellow"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="8dp"
@@ -84,31 +83,36 @@
 
                 <ImageView
                     android:id="@+id/Movie_Details_Back"
-                    android:layout_width="35dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
                     android:clickable="true"
-                    android:rotation="180"
+                    android:padding="5dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/advance_arrow" />
+                    app:srcCompat="@drawable/left"
+                    app:tint="@color/white" />
 
                 <LinearLayout
                     android:id="@+id/reportButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/report_item_bg"
+                    android:layout_height="32dp"
+                    android:background="@drawable/edittext_bg"
                     android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginEnd="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
                         android:layout_width="13dp"
                         android:layout_height="13dp"
-                        android:src="@drawable/info"
-                        android:layout_marginStart="5dp"/>
+                        android:src="@drawable/report"
+                        app:tint="@color/white"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -116,34 +120,34 @@
                         android:textColor="@color/white"
                         android:textSize="10sp"
                         android:gravity="center"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/baloo2_bold"
                         android:layout_marginEnd="5dp"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/commentBtn"
-                    android:layout_width="35dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/comment_tag_bg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/toolbar_bg"
                     android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/reportButton"
                     android:visibility="gone">
 
                     <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_message" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:tint="@color/white"
+                        android:src="@drawable/message" />
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView13"
-                    android:layout_width="140dp"
-                    android:layout_height="200dp"
+                    android:layout_width="110dp"
+                    android:layout_height="170dp"
                     android:layout_marginStart="15dp"
-                    app:cardCornerRadius="10dp"
-                    app:layout_constraintBottom_toTopOf="@+id/cardView12"
+                    app:cardCornerRadius="18dp"
+                    app:layout_constraintBottom_toTopOf="@+id/playLayout"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/Movie_Details_Back">
 
@@ -164,7 +168,7 @@
                             android:layout_width="35dp"
                             android:layout_height="25dp"
                             android:layout_marginTop="20dp"
-                            android:background="@drawable/premium_tag_bg"
+                            android:background="@drawable/edittext_bg"
                             android:gravity="center"
                             android:visibility="gone"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -173,7 +177,7 @@
                             <ImageView
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
-                                android:src="@drawable/crown" />
+                                android:src="@drawable/star" />
                         </LinearLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
@@ -186,8 +190,8 @@
                     android:layout_marginTop="20dp"
                     android:text="Title"
                     android:textColor="@color/white"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/baloo2_bold"
                     app:layout_constraintEnd_toEndOf="@+id/frameLayout"
                     app:layout_constraintStart_toEndOf="@+id/cardView13"
                     app:layout_constraintTop_toTopOf="@+id/cardView13">
@@ -200,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="0000-00-00"
-                    android:textColor="@color/Gray"
+                    android:textColor="@color/white"
                     android:textSize="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/Title_TextView"
@@ -222,13 +226,14 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/ic_star"/>
+                        app:tint="#fec007"
+                        android:src="@drawable/star"/>
 
                     <TextView
                         android:id="@+id/rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
+                        android:layout_marginStart="5dp"
                         android:layout_gravity="center_vertical"
                         android:text="0"
                         android:textAlignment="gravity"
@@ -242,8 +247,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Genre"
-                    android:textColor="@color/Gray"
-                    android:textSize="15dp"
+                    android:textColor="@color/unselect"
+                    android:textSize="14dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/Title_TextView"
                     app:layout_constraintTop_toBottomOf="@+id/ratingLayout">
@@ -259,8 +264,8 @@
                     android:layout_marginEnd="15dp"
                     android:text="Overview"
                     android:textColor="@color/white"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/baloo2_semibold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
@@ -274,7 +279,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
                     android:text="---"
-                    android:textColor="@color/Gray"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -285,12 +290,10 @@
                     android:id="@+id/cardView14"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginEnd="10dp"
-                    android:foreground="@drawable/movie_details_line_bg"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/divider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView12" />
@@ -299,12 +302,10 @@
                     android:id="@+id/cardView15"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginStart="10dp"
                     android:layout_marginTop="65dp"
-                    android:layout_marginEnd="10dp"
-                    android:foreground="@drawable/movie_details_line_bg"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
+                    app:cardBackgroundColor="@color/divider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView14" />
@@ -326,7 +327,6 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:backgroundTint="@color/Screen_Background"
                         android:orientation="horizontal">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -342,7 +342,9 @@
                                 android:id="@+id/Trailer_Icon"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:src="@drawable/trailer_icon"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/trailer"
                                 app:layout_constraintBottom_toTopOf="@+id/textView1301"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -354,7 +356,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Trailer"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -373,7 +376,9 @@
                                 android:id="@+id/Favourite_Icon"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:src="@drawable/heart_favorite"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/heart"
                                 app:layout_constraintBottom_toTopOf="@+id/textView1300"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -385,7 +390,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Favourite"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -404,7 +410,9 @@
                                 android:id="@+id/imageView40"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:src="@drawable/share_arrow"
+                                android:tint="@color/white"
+                                android:layout_marginBottom="5dp"
+                                android:src="@drawable/share"
                                 app:layout_constraintBottom_toTopOf="@+id/textView130"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -416,7 +424,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Share"
                                 android:textColor="@color/white"
-                                android:textSize="15sp"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -435,7 +444,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/season_spinner_bg"
+                    android:background="@drawable/edittext_bg"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp">
                     <com.jaredrummler.materialspinner.MaterialSpinner
@@ -448,7 +457,7 @@
                         android:layout_marginBottom="4dp"
                         app:ms_arrow_tint="@color/white"
                         app:ms_text_color="@color/white"
-                        app:ms_background_color="@color/Screen_Background"
+                        app:ms_background_color="@color/toolbar"
                         android:visibility="gone"/>
                 </LinearLayout>
 
@@ -468,7 +477,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone"
                 android:layout_marginTop="10dp">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -478,21 +486,21 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/castLayoutColorBar"
-                        android:layout_width="5dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/Red_Smooth"
+                        android:layout_width="4dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/divider"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="10dp"
                         android:text="Top cast"
                         android:textAlignment="viewStart"
                         android:textColor="@color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"
+                        android:fontFamily="@font/baloo2_semibold"/>
                 </LinearLayout>
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/castListRecyclerView"
@@ -534,9 +542,9 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/reletedContentLayoutColorBar"
-                        android:layout_width="5dp"
-                        android:layout_height="40dp"
-                        android:backgroundTint="@color/Red_Smooth"
+                       android:layout_width="4dp"
+                        android:layout_height="30dp"
+                        android:backgroundTint="@color/divider"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="10dp" />
 

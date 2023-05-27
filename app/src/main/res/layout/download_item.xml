@@ -4,11 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:backgroundTint="@color/Screen_Background"
+    android:layout_height="100dp"
+    android:backgroundTint="@color/bottomNavigation"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="5dp"
     android:layout_marginStart="10dp"
+    app:cardCornerRadius="18dp"
     android:layout_marginEnd="5dp"
     android:clickable="true"
     android:focusable="true">
@@ -38,12 +39,11 @@
                     android:id="@+id/Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
                     android:text="Name"
                     android:textAlignment="viewStart"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/baloo2_bold"
                     android:layout_marginTop="10dp"/>
 
                 <LinearLayout
@@ -67,6 +67,7 @@
                                 android:textColor="@color/white"
                                 android:textSize="12sp"
                                 android:textStyle="normal"
+                                android:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -79,6 +80,7 @@
                                 android:text="Downloading"
                                 android:textColor="@color/white"
                                 android:textSize="12sp"
+                                android:fontFamily="@font/baloo2_medium"
                                 android:textStyle="normal"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,12 +95,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
                         android:max="100"
+                        android:layout_marginTop="10dp"
                         android:progress="20"
-                        android:progressTint="@color/Red_Smooth"
+                        android:progressTint="@color/yellow"
                         android:progressDrawable="@drawable/progress_bar" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="horizontal">
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -111,7 +115,7 @@
                                 android:text="100%"
                                 android:textColor="@color/white"
                                 android:textSize="12sp"
-                                android:textStyle="normal"
+                                android:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -124,7 +128,7 @@
                                 android:text="1.2MB/s"
                                 android:textColor="@color/white"
                                 android:textSize="12sp"
-                                android:textStyle="normal"
+                                android:fontFamily="@font/baloo2_medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
@@ -148,10 +152,11 @@
                     android:id="@+id/actionButtonImage"
                     android:layout_width="32dp"
                     android:layout_height="25dp"
-                    android:src="@drawable/ic_pause_white"
+                    android:src="@drawable/pause_circle"
                     android:layout_gravity="center"
                     android:clickable="true"
                     android:focusable="true"
+                    android:tint="@color/white"
                     android:foreground="?android:selectableItemBackground"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

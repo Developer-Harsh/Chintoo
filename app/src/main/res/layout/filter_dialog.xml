@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:id="@+id/cardView16"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="330dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/commentTabExtraSpace"
-    android:background="@drawable/bottom_dialog_bg"
+    android:background="@drawable/rounded_bottom_sheet_dialog"
+    android:backgroundTint="@color/bottomNavigation"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -28,9 +29,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:text="Filter"
-                android:textColor="@color/Red_Smooth"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="@font/baloo2_bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +45,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/w_Dark" />
+                app:tint="@color/white" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.cardview.widget.CardView
@@ -52,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginEnd="40dp"
-            android:backgroundTint="@color/Non_Selected"
+            android:backgroundTint="@color/divider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,14 +85,14 @@
                     android:id="@+id/allFilterBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_margin="3dp"
+                    android:layout_marginLeft="13dp"
                     app:toggle_text="All" />
 
                 <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
                     android:id="@+id/byReleaseDateFilterBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:layout_margin="3dp"
+                    android:layout_marginLeft="7dp"
                     app:toggle_text="by Release Date" />
 
             </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
@@ -100,7 +101,7 @@
                 android:id="@+id/livetvGenres"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 app:flexWrap="wrap"
                 app:justifyContent="flex_start"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +110,7 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/movie_list_recycleview"
+                    android:layout_marginLeft="13dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 

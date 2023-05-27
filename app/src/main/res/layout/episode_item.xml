@@ -5,11 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:backgroundTint="@color/Screen_Background"
+    android:backgroundTint="@color/ad_box"
     android:layout_marginTop="10dp"
     android:layout_marginBottom="5dp"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="5dp"
+    app:cardCornerRadius="18dp"
     android:clickable="true"
     android:focusable="true">
 
@@ -25,26 +26,27 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
-                android:src="@mipmap/ic_launcher"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:id="@+id/Premium_Tag"
-                android:layout_width="35dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/premium_tag_bg"
+                android:backgroundTint="@color/yellow"
+                android:background="@drawable/edittext_bg"
                 android:gravity="center"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/Episode_image"
-                android:visibility="gone">
+                app:layout_constraintTop_toTopOf="@+id/Episode_image">
 
                 <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/crown" />
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:tint="@color/black"
+                    android:src="@drawable/star" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <Space
@@ -68,12 +70,11 @@
                     android:id="@+id/Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
                     android:text="Name"
                     android:textAlignment="viewStart"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/baloo2_bold"
                     android:layout_marginTop="10dp"/>
 
                 <TextView
@@ -82,7 +83,8 @@
                     android:layout_height="wrap_content"
                     android:text="Description"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/Gray_Smooth"
+                    android:textColor="@color/unselect"
+                    android:fontFamily="@font/baloo2_medium"
                     android:textSize="10sp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -98,8 +100,9 @@
                 <ImageView
                     android:id="@+id/Download_btn_image"
                     android:layout_width="32dp"
+                    android:tint="@color/white"
                     android:layout_height="25dp"
-                    android:src="@drawable/small_download"
+                    android:src="@drawable/downloads"
                     android:layout_gravity="center"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

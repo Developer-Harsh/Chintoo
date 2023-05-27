@@ -7,15 +7,15 @@
     android:gravity="start">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="18dp"
         android:backgroundTint="@color/white"
         app:cardElevation="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="100dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -41,8 +41,8 @@
                     android:text="Name"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="15sp"/>
+                    android:fontFamily="@font/baloo2_bold"
+                    android:textSize="14sp"/>
             </LinearLayout>
             <Space
                 android:layout_width="match_parent"
@@ -56,6 +56,9 @@
                     android:layout_height="match_parent"
                     android:text="Message"
                     android:gravity="start"
+                    android:backgroundTint="#f1f1f1"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingVertical="6dp"
                     android:textColor="@color/black"
                     android:textStyle="normal"
                     android:textSize="15sp"

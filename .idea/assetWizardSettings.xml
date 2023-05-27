@@ -79,7 +79,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="F:\Libraries\Sell\OttApp\app\src\main\res\drawable\logo.xml" />
+                                                <entry key="imagePath" value="F:\Libraries\Sell\Chintoo-App-Final\app\src\main\res\drawable\logo.png" />
                                                 <entry key="scalingPercent" value="48" />
                                               </map>
                                             </option>
@@ -318,8 +318,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="check" />
-                            <entry key="sourceFile" value="F:\{ Developer } Harsh\Icons\line\check.svg" />
+                            <entry key="outputName" value="send" />
+                            <entry key="sourceFile" value="F:\{ Developer } Harsh\Icons\line\message.svg" />
                           </map>
                         </option>
                       </PersistentState>

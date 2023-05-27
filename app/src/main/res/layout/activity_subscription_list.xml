@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
@@ -41,12 +40,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:text="S"
+                        android:text="Subscriptions"
                         android:textAlignment="viewEnd"
-                        android:fontFamily="sans-serif-black"
-                        android:textColor="@color/Red_Smooth"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="26sp"
+                        android:fontFamily="@font/baloo2_bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -59,6 +57,7 @@
                         android:text="ubscriptions"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/white"
+                        android:visibility="gone"
                         android:textSize="30sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,8 +71,9 @@
                     android:id="@+id/Coupan_Item"
                     android:layout_width="35dp"
                     android:layout_height="25dp"
-                    android:background="@drawable/comment_tag_bg"
+                    android:background="@drawable/edittext_bg"
                     android:gravity="center"
+                    android:layout_marginEnd="15dp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +83,7 @@
                         android:id="@+id/Subscription_item_bg"
                         android:layout_width="15dp"
                         android:layout_height="25dp"
+                        android:tint="@color/white"
                         android:src="@drawable/coupon" />
                 </LinearLayout>
 
@@ -93,7 +94,8 @@
                     android:layout_marginStart="15dp"
                     android:text="Get Your Subscription"
                     android:textAlignment="textStart"
-                    android:textColor="@color/Gray_Smooth"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
                     android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
@@ -121,11 +123,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-black"
                         android:text="Why Upgrade \nto Premium?"
                         android:textColor="@color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
+                        android:textSize="24sp"
+                        android:fontFamily="@font/baloo2_bold" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -141,13 +142,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Get Access to All Contents"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_semibold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -159,13 +161,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Remove All Ads"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_semibold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -177,13 +180,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Watch Premium Contents"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_semibold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>
@@ -195,13 +199,14 @@
                             <ImageView
                                 android:layout_width="22dp"
                                 android:layout_height="22dp"
+                                android:tint="@color/white"
                                 android:src="@drawable/tick"/>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Download Premium Contents"
                                 android:textColor="@color/white"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/baloo2_semibold"
                                 android:textSize="18sp"
                                 android:layout_marginStart="10dp"/>
                         </LinearLayout>

@@ -13,7 +13,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.dooo.android"
+        applicationId "com.harproj.harottapp"
         minSdkVersion 23
         targetSdkVersion 33
         multiDexEnabled true
@@ -53,7 +53,7 @@ android {
     applovin {
         apiKey "iyD9r5Rs6DDXdFXHu9y5a-QBWubr4sH9ccnqdnwfO5nJLRha0y2XSuVtmDLAhMR6M-mIR5xcu61sdymtaeAXJ-" //Add Your applovin apiKey
     }
-    namespace 'com.dooo.android'
+    namespace 'com.harproj.harottapp'
 }
 
 dependencies {
