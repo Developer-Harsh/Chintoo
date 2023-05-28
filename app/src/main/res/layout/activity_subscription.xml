@@ -224,7 +224,7 @@
                         app:row_text_size="3sp"
                         app:row_text_color="@color/white"
                         app:header_text_color="@color/white"
-                        app:row_background_color="@drawable/toolbar_bg"
+                        app:row_background_color="@color/toolbar"
                         app:header_background_color="@color/bottomNavigation"
                         app:persian_number="false"
                         app:corner_radius="8dp"

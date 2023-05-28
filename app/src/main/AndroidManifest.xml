@@ -63,35 +63,73 @@
         <activity
             android:name=".LiveTVSearch"
             android:exported="true" />
-        <activity android:name=".GenreDetails" />
-        <activity android:name=".AllGenre" />
-        <activity android:name=".Downloads" />
-        <activity android:name=".PrivecyPolicy" />
-        <activity android:name=".TermsAndConditions" />
+        <activity
+            android:name=".GenreDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AllGenre"
+            android:exported="false" />
+        <activity
+            android:name=".Downloads"
+            android:exported="false" />
+        <activity
+            android:name=".PrivecyPolicy"
+            android:exported="false" />
+        <activity
+            android:name=".TermsAndConditions"
+            android:exported="false" />
         <activity
             android:name=".YoutubeLivePlayer"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".InAppUpdate" />
-        <activity android:name=".LiveTv" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".InAppUpdate"
+            android:exported="false" />
+        <activity
+            android:name=".LiveTv"
+            android:exported="false" />
         <activity
             android:name=".EmbedPlayer"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false" />
         <activity
             android:name=".Player"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".SubscriptionDetails" />
-        <activity android:name=".SubscriptionList" />
-        <activity android:name=".Subscription" />
-        <activity android:name=".Favorites" />
-        <activity android:name=".WebSeriesDetails" />
-        <activity android:name=".Maintenance" />
-        <activity android:name=".WebView" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".SubscriptionDetails"
+            android:exported="false" />
+        <activity
+            android:name=".SubscriptionList"
+            android:exported="false" />
+        <activity
+            android:name=".Subscription"
+            android:exported="false" />
+        <activity
+            android:name=".Favorites"
+            android:exported="false" />
+        <activity
+            android:name=".WebSeriesDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Maintenance"
+            android:exported="false" />
+        <activity
+            android:name=".WebView"
+            android:exported="false" />
         <activity
             android:name=".TrailerPlayer"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".MovieDetails" />
-        <activity android:name=".LoginSignup" />
-        <activity android:name=".Home" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false" />
+        <activity
+            android:name=".MovieDetails"
+            android:exported="false" />
+        <activity
+            android:name=".LoginSignup"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="false" />
         <activity
             android:name=".Splash"
             android:exported="true">

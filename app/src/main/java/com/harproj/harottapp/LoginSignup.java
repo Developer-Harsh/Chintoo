@@ -373,8 +373,8 @@ public class LoginSignup extends AppCompatActivity {
         CardView google_sign_in_button = findViewById(R.id.google_sign_in_button);
         CardView google_sign_up_button = findViewById(R.id.google_sign_up_button);
         if(google_login == 1) {
-            google_sign_in_button.setVisibility(View.VISIBLE);
-            google_sign_up_button.setVisibility(View.VISIBLE);
+            google_sign_in_button.setVisibility(View.GONE);
+            google_sign_up_button.setVisibility(View.GONE);
             google_sign_in_button.setOnClickListener(view->{
                 GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                         .requestEmail()

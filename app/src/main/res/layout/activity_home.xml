@@ -14,8 +14,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -44,6 +44,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="15dp"
@@ -106,17 +107,6 @@
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_navigation" />
 
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/navigation_view"
-            app:menu="@menu/menu_navigation"
-            app:itemIconTint="@null"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="false"
-            app:itemTextAppearance="?android:attr/textAppearance"
-            app:headerLayout="@layout/header_layout" />
-
         <com.jetradarmobile.snowfall.SnowfallView
             android:id="@+id/SnowfallView"
             android:layout_width="match_parent"
@@ -127,5 +117,16 @@
             app:snowflakeImage="@drawable/snowflake"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navigation_view"
+        app:menu="@menu/menu_navigation"
+        app:itemIconTint="@null"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="false"
+        app:itemTextAppearance="?android:attr/textAppearance"
+        app:headerLayout="@layout/header_layout" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

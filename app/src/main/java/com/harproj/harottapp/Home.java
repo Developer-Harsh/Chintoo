@@ -24,6 +24,7 @@ import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -39,6 +40,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.SwitchCompat;
@@ -46,6 +48,8 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -66,6 +70,7 @@ import com.android.volley.toolbox.Volley;
 import com.applovin.mediation.ads.MaxAdView;
 import com.applovin.sdk.AppLovinSdk;
 import com.bumptech.glide.Glide;
+import com.google.android.material.navigation.NavigationView;
 import com.harproj.harottapp.adepter.AllMovieListAdepter;
 import com.harproj.harottapp.adepter.AllWebSeriesListAdepter;
 import com.harproj.harottapp.adepter.ContinuePlayingListAdepter;
@@ -315,7 +320,7 @@ public class Home extends AppCompatActivity {
         View seriesLayout = findViewById(R.id.Series_Layout);
         View accountLayout = findViewById(R.id.Account_Layout);
 
-        LinearLayout homeSearchTag = findViewById(R.id.searchToolbar);
+        ImageView homeSearchTag = findViewById(R.id.searchToolbar);
         homeSearchTag.setOnClickListener(view -> {
             bottomNavigationView.setSelectedItemId(R.id.search);
             homeLayout.setVisibility(View.GONE);
@@ -324,6 +329,64 @@ public class Home extends AppCompatActivity {
             seriesLayout.setVisibility(View.GONE);
             accountLayout.setVisibility(View.GONE);
             searchContentEditText.setText("");
+        });
+
+        DrawerLayout drawer = findViewById(R.id.drawer);
+        NavigationView navigation = findViewById(R.id.navigation_view);
+
+        findViewById(R.id.menu).setOnClickListener(v -> drawer.openDrawer(GravityCompat.START));
+
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        homeLayout.setVisibility(View.VISIBLE);
+                        searchLayout.setVisibility(View.GONE);
+                        moviesLayout.setVisibility(View.GONE);
+                        seriesLayout.setVisibility(View.GONE);
+                        accountLayout.setVisibility(View.GONE);
+                        loadhomecontentlist();
+                        break;
+                    case R.id.movie:
+                        homeLayout.setVisibility(View.GONE);
+                        searchLayout.setVisibility(View.GONE);
+                        moviesLayout.setVisibility(View.VISIBLE);
+                        seriesLayout.setVisibility(View.GONE);
+                        accountLayout.setVisibility(View.GONE);
+                        movieList();
+                        break;
+                    case R.id.series:
+                        homeLayout.setVisibility(View.GONE);
+                        searchLayout.setVisibility(View.GONE);
+                        moviesLayout.setVisibility(View.GONE);
+                        seriesLayout.setVisibility(View.VISIBLE);
+                        accountLayout.setVisibility(View.GONE);
+                        webSeriesList();
+                        break;
+                    case R.id.livetv:
+                        startActivity(new Intent(Home.this, LiveTv.class));
+                        break;
+                    case R.id.favorite:
+                        startActivity(new Intent(Home.this, Favorites.class));
+                        break;
+                    case R.id.genre:
+                        startActivity(new Intent(Home.this, AllGenre.class));
+                        break;
+                    case R.id.login:
+                        homeLayout.setVisibility(View.GONE);
+                        searchLayout.setVisibility(View.GONE);
+                        moviesLayout.setVisibility(View.GONE);
+                        seriesLayout.setVisibility(View.GONE);
+                        accountLayout.setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.settings:
+                        startActivity(new Intent(Home.this, WebView.class)
+                                .putExtra("URL", "https://snevatechnologies.com/"));
+                        break;
+                }
+                return false;
+            }
         });
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {

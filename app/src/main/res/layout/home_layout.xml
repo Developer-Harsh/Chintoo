@@ -16,6 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
+            android:paddingTop="50dp"
+            android:paddingBottom="70dp"
+            android:clipToPadding="false"
             tools:layout_editor_absoluteX="190dp"
             tools:layout_editor_absoluteY="277dp">
 
