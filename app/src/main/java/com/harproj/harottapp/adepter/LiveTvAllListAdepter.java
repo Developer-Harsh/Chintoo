@@ -74,7 +74,7 @@ public class LiveTvAllListAdepter extends RecyclerView.Adapter<LiveTvAllListAdep
                             }
                         } else {
                             HelperUtils helperUtils = new HelperUtils((LiveTv) mContext);
-                            helperUtils.Buy_Premium_Dialog((LiveTv) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                            helperUtils.Buy_Premium_Dialog((LiveTv) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                         }
                     } else {
                         if(mData.get(position).getStream_type().equals("Embed")){
@@ -125,7 +125,7 @@ public class LiveTvAllListAdepter extends RecyclerView.Adapter<LiveTvAllListAdep
                         }
                     } else {
                         HelperUtils helperUtils = new HelperUtils((LiveTv) mContext);
-                        helperUtils.Buy_Premium_Dialog((LiveTv) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                        helperUtils.Buy_Premium_Dialog((LiveTv) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                     }
                 }
             }

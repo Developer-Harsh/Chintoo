@@ -183,7 +183,7 @@ public class HelperUtils {
                 .setMessage(message)
                 .setCancelable(false)
                 .setAnimation(Animation)
-                .setPositiveButton("Exit", R.drawable.ic_baseline_exit, new MaterialDialog.OnClickListener() {
+                .setPositiveButton("Exit", R.drawable.exit, new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         System.exit(0);

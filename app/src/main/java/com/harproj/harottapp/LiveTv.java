@@ -65,7 +65,7 @@ public class LiveTv extends AppCompatActivity {
             helperUtils = new HelperUtils(LiveTv.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(LiveTv.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(LiveTv.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -247,7 +247,7 @@ public class LiveTv extends AppCompatActivity {
             helperUtils = new HelperUtils(LiveTv.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(LiveTv.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(LiveTv.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

@@ -66,7 +66,7 @@ public class YoutubeLivePlayer extends AppCompatActivity {
             helperUtils = new HelperUtils(YoutubeLivePlayer.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(YoutubeLivePlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(YoutubeLivePlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 

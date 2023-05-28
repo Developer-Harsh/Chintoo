@@ -242,7 +242,7 @@ public class Player extends AppCompatActivity {
             helperUtils = new HelperUtils(Player.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Player.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Player.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -491,13 +491,13 @@ public class Player extends AppCompatActivity {
         img_full_scr.setOnClickListener(view -> {
             if (playerView.getResizeMode() == AspectRatioFrameLayout.RESIZE_MODE_ZOOM) {
                 playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
-                img_full_scr.setImageDrawable(getDrawable(R.drawable.ic_baseline_fullscreen_24));
+                img_full_scr.setImageDrawable(getDrawable(R.drawable.fullscreen));
             } else if (playerView.getResizeMode() == AspectRatioFrameLayout.RESIZE_MODE_FIT) {
                 playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
-                img_full_scr.setImageDrawable(getDrawable(R.drawable.ic_baseline_fullscreen_exit_24));
+                img_full_scr.setImageDrawable(getDrawable(R.drawable.fullscreen_exit));
             } else {
                 playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
-                img_full_scr.setImageDrawable(getDrawable(R.drawable.ic_baseline_fullscreen_24));
+                img_full_scr.setImageDrawable(getDrawable(R.drawable.fullscreen));
             }
         });
 
@@ -1641,7 +1641,7 @@ public class Player extends AppCompatActivity {
             helperUtils = new HelperUtils(Player.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Player.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Player.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

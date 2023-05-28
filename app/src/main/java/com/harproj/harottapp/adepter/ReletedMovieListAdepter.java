@@ -114,7 +114,7 @@ public class ReletedMovieListAdepter extends RecyclerView.Adapter<ReletedMovieLi
         void setImage(MovieList Thumbnail_Image) {
             Glide.with(context)
                     .load(Thumbnail_Image.getThumbnail())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(Thumbnail);
         }
     }

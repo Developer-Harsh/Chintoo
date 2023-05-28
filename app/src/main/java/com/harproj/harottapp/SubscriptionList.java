@@ -66,14 +66,14 @@ public class SubscriptionList extends AppCompatActivity {
             helperUtils = new HelperUtils(SubscriptionList.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(SubscriptionList.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(SubscriptionList.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.Home_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
         loadData();
 
@@ -176,7 +176,7 @@ public class SubscriptionList extends AppCompatActivity {
         TextView firstLetterOfTitle = findViewById(R.id.firstLetterOfTitle);
         firstLetterOfTitle.setTextColor(color);
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(context, R.drawable.comment_tag_bg);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(context, R.drawable.edittext_bg);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
         DrawableCompat.setTint(wrappedDrawable, color);
 
@@ -245,7 +245,7 @@ public class SubscriptionList extends AppCompatActivity {
             helperUtils = new HelperUtils(SubscriptionList.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(SubscriptionList.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(SubscriptionList.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

@@ -60,14 +60,14 @@ public class Subscription extends AppCompatActivity {
             helperUtils = new HelperUtils(Subscription.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Subscription.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Subscription.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.Home_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
         LoadData();
 
@@ -211,7 +211,7 @@ public class Subscription extends AppCompatActivity {
             helperUtils = new HelperUtils(Subscription.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Subscription.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Subscription.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

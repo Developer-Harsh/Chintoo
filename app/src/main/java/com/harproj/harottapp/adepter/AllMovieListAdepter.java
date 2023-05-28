@@ -136,7 +136,7 @@ public class AllMovieListAdepter extends RecyclerView.Adapter<AllMovieListAdepte
         void setImage(MovieList Thumbnail_Image) {
             Glide.with(context)
                     .load(Thumbnail_Image.getThumbnail())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(Thumbnail);
         }
     }

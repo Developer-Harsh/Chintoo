@@ -65,7 +65,7 @@ public class EmbedPlayer extends AppCompatActivity {
             helperUtils = new HelperUtils(EmbedPlayer.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(EmbedPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(EmbedPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -159,7 +159,7 @@ public class EmbedPlayer extends AppCompatActivity {
             helperUtils = new HelperUtils(EmbedPlayer.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(EmbedPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(EmbedPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

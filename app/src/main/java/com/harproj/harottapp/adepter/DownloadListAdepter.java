@@ -86,7 +86,7 @@ public final class DownloadListAdepter extends RecyclerView.Adapter<DownloadList
 
         switch (status) {
             case COMPLETED: {
-                holder.actionButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play_button_icon));
+                holder.actionButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.play_circle));
                 holder.actionButton.setOnClickListener(view -> {
                     String name = downloadData.download.getFileUri().getLastPathSegment().split("\\.")[0];
                     String externtion = downloadData.download.getFileUri().getLastPathSegment().split("\\.")[1];
@@ -145,7 +145,7 @@ public final class DownloadListAdepter extends RecyclerView.Adapter<DownloadList
                 break;
             }
             case ADDED: {
-                holder.actionButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.download_icon));
+                holder.actionButton.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.downloads));
                 holder.actionButton.setOnClickListener(view -> {
                     holder.actionButton.setEnabled(false);
                     actionListener.onResumeDownload(downloadData.download.getId());

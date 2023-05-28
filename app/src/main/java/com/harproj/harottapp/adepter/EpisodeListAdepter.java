@@ -124,7 +124,7 @@ public class EpisodeListAdepter extends RecyclerView.Adapter<EpisodeListAdepter.
                             }
                         } else {
                             HelperUtils helperUtils = new HelperUtils((WebSeriesDetails) mContext);
-                            helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                            helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                         }
 
                     } else {
@@ -230,7 +230,7 @@ public class EpisodeListAdepter extends RecyclerView.Adapter<EpisodeListAdepter.
                         }
                     } else {
                         HelperUtils helperUtils = new HelperUtils((WebSeriesDetails) mContext);
-                        helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                        helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                     }
                 }
             }
@@ -279,7 +279,7 @@ public class EpisodeListAdepter extends RecyclerView.Adapter<EpisodeListAdepter.
                                     downloadDialog.show();
                                 } else {
                                     HelperUtils helperUtils = new HelperUtils((WebSeriesDetails) mContext);
-                                    helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                                    helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                                 }
                             } else {
                                 JsonArray jsonArray = new Gson().fromJson(response, JsonArray.class);
@@ -387,7 +387,7 @@ public class EpisodeListAdepter extends RecyclerView.Adapter<EpisodeListAdepter.
                                 downloadDialog.show();
                             } else {
                                 HelperUtils helperUtils = new HelperUtils((WebSeriesDetails) mContext);
-                                helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                                helperUtils.Buy_Premium_Dialog((WebSeriesDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                             }
                         }
 
@@ -441,7 +441,7 @@ public class EpisodeListAdepter extends RecyclerView.Adapter<EpisodeListAdepter.
         void setEpisode_image(EpisodeList image) {
             Glide.with(context)
                     .load(image.getEpisoade_image())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(Episode_image);
         }
 

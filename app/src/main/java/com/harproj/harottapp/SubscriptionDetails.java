@@ -68,7 +68,7 @@ public class SubscriptionDetails extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.Home_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
         setContentView(R.layout.activity_subscription_details);
 
@@ -80,7 +80,7 @@ public class SubscriptionDetails extends AppCompatActivity {
             helperUtils = new HelperUtils(SubscriptionDetails.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(SubscriptionDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(SubscriptionDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -258,7 +258,7 @@ public class SubscriptionDetails extends AppCompatActivity {
                 ImageView subscriptionTtemBg= findViewById(R.id.Subscription_item_bg);
                 Glide.with(SubscriptionDetails.this)
                         .load(background)
-                        .placeholder(R.drawable.thumbnail_placeholder)
+                        .placeholder(R.drawable.poster_placeholder)
                         .into(subscriptionTtemBg);
 
                 LinearLayout GATAC = findViewById(R.id.GATAC);
@@ -347,7 +347,7 @@ public class SubscriptionDetails extends AppCompatActivity {
             helperUtils = new HelperUtils(SubscriptionDetails.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(SubscriptionDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(SubscriptionDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

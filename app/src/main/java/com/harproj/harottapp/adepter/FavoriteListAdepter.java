@@ -113,7 +113,7 @@ public class FavoriteListAdepter extends RecyclerView.Adapter<FavoriteListAdepte
         void setImage(FavoriteList Thumbnail_Image) {
             Glide.with(context)
                     .load(Thumbnail_Image.getPoster())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(Thumbnail);
         }
     }

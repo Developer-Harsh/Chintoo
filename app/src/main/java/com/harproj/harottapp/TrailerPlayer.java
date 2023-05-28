@@ -102,7 +102,7 @@ public class TrailerPlayer extends AppCompatActivity {
             helperUtils = new HelperUtils(TrailerPlayer.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(TrailerPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(TrailerPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -131,13 +131,13 @@ public class TrailerPlayer extends AppCompatActivity {
             public void onClick(View view) {
                 if(playerView.getResizeMode() == AspectRatioFrameLayout.RESIZE_MODE_ZOOM) {
                     playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
-                    imgFullScr.setImageDrawable(getDrawable(R.drawable.ic_baseline_fullscreen_24));
+                    imgFullScr.setImageDrawable(getDrawable(R.drawable.fullscreen));
                 } else if(playerView.getResizeMode() == AspectRatioFrameLayout.RESIZE_MODE_FIT) {
                     playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
-                    imgFullScr.setImageDrawable(getDrawable(R.drawable.ic_baseline_fullscreen_exit_24));
+                    imgFullScr.setImageDrawable(getDrawable(R.drawable.fullscreen_exit));
                 } else {
                     playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
-                    imgFullScr.setImageDrawable(getDrawable(R.drawable.ic_baseline_fullscreen_24));
+                    imgFullScr.setImageDrawable(getDrawable(R.drawable.fullscreen));
                 }
 
             }
@@ -264,8 +264,10 @@ public class TrailerPlayer extends AppCompatActivity {
     }
 
     private void pausePlayer(){
-        simpleExoPlayer.setPlayWhenReady(false);
-        simpleExoPlayer.getPlaybackState();
+        if (simpleExoPlayer != null) {
+            simpleExoPlayer.setPlayWhenReady(false);
+            simpleExoPlayer.getPlaybackState();
+        }
     }
     private void startPlayer(){
         simpleExoPlayer.setPlayWhenReady(true);
@@ -307,7 +309,7 @@ public class TrailerPlayer extends AppCompatActivity {
             helperUtils = new HelperUtils(TrailerPlayer.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(TrailerPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(TrailerPlayer.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

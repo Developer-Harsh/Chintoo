@@ -85,7 +85,7 @@ public class LiveTvChannelListAdepter extends RecyclerView.Adapter<LiveTvChannel
                                 }
                             } else {
                                 HelperUtils helperUtils = new HelperUtils((Home) mContext);
-                                helperUtils.Buy_Premium_Dialog((Home) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                                helperUtils.Buy_Premium_Dialog((Home) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                             }
 
                         } else {
@@ -137,7 +137,7 @@ public class LiveTvChannelListAdepter extends RecyclerView.Adapter<LiveTvChannel
                             }
                         } else {
                             HelperUtils helperUtils = new HelperUtils((Home) mContext);
-                            helperUtils.Buy_Premium_Dialog((Home) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                            helperUtils.Buy_Premium_Dialog((Home) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                         }
                     }
                 }

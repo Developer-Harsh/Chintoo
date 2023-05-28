@@ -60,7 +60,7 @@ public class LiveTVSearch extends AppCompatActivity {
             helperUtils = new HelperUtils(LiveTVSearch.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(LiveTVSearch.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(LiveTVSearch.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 

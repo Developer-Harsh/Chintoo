@@ -73,7 +73,7 @@ public class InAppUpdate extends AppCompatActivity {
             helperUtils = new HelperUtils(InAppUpdate.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(InAppUpdate.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(InAppUpdate.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -329,7 +329,7 @@ public class InAppUpdate extends AppCompatActivity {
             helperUtils = new HelperUtils(InAppUpdate.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(InAppUpdate.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(InAppUpdate.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

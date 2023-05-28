@@ -180,9 +180,9 @@ public class WebSeriesDetails extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.Home_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.comment_tag_bg);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.edittext_bg);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
         DrawableCompat.setTint(wrappedDrawable, Color.parseColor(AppConfig.primeryThemeColor));
 
@@ -195,7 +195,7 @@ public class WebSeriesDetails extends AppCompatActivity {
             helperUtils = new HelperUtils(WebSeriesDetails.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(WebSeriesDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(WebSeriesDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -616,7 +616,7 @@ public class WebSeriesDetails extends AppCompatActivity {
                         startActivityForResult(intent, 1);
                     } else {
                         HelperUtils helperUtils = new HelperUtils((WebSeriesDetails) context);
-                        helperUtils.Buy_Premium_Dialog((WebSeriesDetails) context, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                        helperUtils.Buy_Premium_Dialog((WebSeriesDetails) context, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                     }
                 }
             }
@@ -1143,7 +1143,7 @@ public class WebSeriesDetails extends AppCompatActivity {
             ImageView movieDetailsPoster = findViewById(R.id.Movie_Details_Poster);
             Glide.with(WebSeriesDetails.this)
                     .load(poster)
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(movieDetailsPoster);
 
             View premiumTag = findViewById(R.id.Premium_Tag);
@@ -1163,9 +1163,9 @@ public class WebSeriesDetails extends AppCompatActivity {
             descriptionTextView.setText(description);
 
             if(trailerUrl.equals("")) {
-                trailerIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.trailer_blocked_icon));
+                trailerIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.trailer_blocked));
             } else {
-                trailerIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.trailer_icon));
+                trailerIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.trailer));
             }
 
             searchFavourite();
@@ -1244,7 +1244,7 @@ public class WebSeriesDetails extends AppCompatActivity {
         StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"favourite/SET/"+tempUserID+"/Web Series/"+contentId, response -> {
             if(response.equals("New favourite created successfully")) {
                 isFavourite = true;
-                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.red_heart_favorite));
+                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.heart_red));
             }
 
         }, error -> {
@@ -1265,7 +1265,7 @@ public class WebSeriesDetails extends AppCompatActivity {
         StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"favourite/SEARCH/"+tempUserID+"/Web Series/"+contentId, response -> {
             if(response.equals("Record Found")) {
                 isFavourite = true;
-                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.red_heart_favorite));
+                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.heart_red));
             }
 
         }, error -> {
@@ -1286,7 +1286,7 @@ public class WebSeriesDetails extends AppCompatActivity {
         StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"favourite/REMOVE/"+tempUserID+"/Web Series/"+contentId, response -> {
             if(response.equals("Favourite successfully Removed")) {
                 isFavourite = false;
-                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.heart_favorite));
+                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(WebSeriesDetails.this, R.drawable.heart));
             }
 
         }, error -> {
@@ -1380,7 +1380,7 @@ public class WebSeriesDetails extends AppCompatActivity {
             helperUtils = new HelperUtils(WebSeriesDetails.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(WebSeriesDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(WebSeriesDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

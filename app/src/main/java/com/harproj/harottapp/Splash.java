@@ -276,7 +276,7 @@ public class Splash extends AppCompatActivity {
                                     if(!Objects.equals(tinyDB.getString("splashBgColor"), "")) {
                                         window.setStatusBarColor(Color.parseColor(tinyDB.getString("splashBgColor")));
                                     } else {
-                                        window.setStatusBarColor(ContextCompat.getColor(Splash.this,R.color.Splash_TitleBar_BG));
+                                        window.setStatusBarColor(ContextCompat.getColor(Splash.this,R.color.bg));
                                     }
 
                                     setContentView(R.layout.activity_splash);
@@ -302,17 +302,17 @@ public class Splash extends AppCompatActivity {
                             ApplicationInfo restrictedApp = helperUtils.getRestrictApp();
                             if (restrictedApp != null){
                                 Log.e("test", restrictedApp.loadLabel(Splash.this.getPackageManager()).toString());
-                                HelperUtils.showWarningDialog(Splash.this, "Restricted App!", "Please Uninstall "+restrictedApp.loadLabel(Splash.this.getPackageManager()).toString()+" to use this App On this Device!", R.raw.sequre);
+                                HelperUtils.showWarningDialog(Splash.this, "Restricted App!", "Please Uninstall "+restrictedApp.loadLabel(Splash.this.getPackageManager()).toString()+" to use this App On this Device!", R.drawable.user);
                             } else {
                                 if (HelperUtils.cr(Splash.this, AppConfig.allowRoot)) {
-                                    HelperUtils.showWarningDialog(Splash.this, "ROOT!", "You are Not Allowed To Use this App on Rooted Device!", R.raw.sequre);
+                                    HelperUtils.showWarningDialog(Splash.this, "ROOT!", "You are Not Allowed To Use this App on Rooted Device!", R.drawable.user);
 
                                 } else {
                                     if (AppConfig.allowVPN) {
                                         loadData();
                                     } else {
                                         if (vpnStatus) {
-                                            helperUtils.showWarningDialog(Splash.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                                            helperUtils.showWarningDialog(Splash.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
                                         } else {
                                             loadData();
                                         }
@@ -565,8 +565,8 @@ public class Splash extends AppCompatActivity {
                                                     .setTitle("Update "+latestAPKVersionName)
                                                     .setMessage(whatsNew)
                                                     .setCancelable(false)
-                                                    .setAnimation(R.raw.rocket_telescope)
-                                                    .setNegativeButton(updateSkipable==0?"Exit":"Cancel", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                                                    .setAnimation(R.drawable.user)
+                                                    .setNegativeButton(updateSkipable==0?"Exit":"Cancel", R.drawable.exit, (dialogInterface, which) -> {
                                                         if(updateSkipable == 0) { //NO
                                                             finish();
                                                         } else if(updateSkipable == 1) { //YES
@@ -574,7 +574,7 @@ public class Splash extends AppCompatActivity {
                                                             openApp();
                                                         }
                                                     })
-                                                    .setPositiveButton("Update!", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                                                    .setPositiveButton("Update!", R.drawable.exit, (dialogInterface, which) -> {
                                                         if(updateType == 0) {
                                                             Intent intent = new Intent(Splash.this, InAppUpdate.class);
                                                             intent.putExtra("Update_Title", "Update "+latestAPKVersionName);
@@ -653,8 +653,8 @@ public class Splash extends AppCompatActivity {
                                         .setTitle("Update "+latestAPKVersionName)
                                         .setMessage(whatsNew)
                                         .setCancelable(false)
-                                        .setAnimation(R.raw.rocket_telescope)
-                                        .setNegativeButton(updateSkipable==0?"Exit":"Cancel", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                                        .setAnimation(R.drawable.user)
+                                        .setNegativeButton(updateSkipable==0?"Exit":"Cancel", R.drawable.exit, (dialogInterface, which) -> {
                                             if(updateSkipable == 0) { //NO
                                                 finish();
                                             } else if(updateSkipable == 1) { //YES
@@ -662,7 +662,7 @@ public class Splash extends AppCompatActivity {
                                                 openApp();
                                             }
                                         })
-                                        .setPositiveButton("Update!", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                                        .setPositiveButton("Update!", R.drawable.exit, (dialogInterface, which) -> {
                                             if(updateType == 0) {
                                                 Intent intent = new Intent(Splash.this, InAppUpdate.class);
                                                 intent.putExtra("Update_Title", "Update "+latestAPKVersionName);
@@ -734,8 +734,8 @@ public class Splash extends AppCompatActivity {
                                     .setTitle("Update "+latestAPKVersionName)
                                     .setMessage(whatsNew)
                                     .setCancelable(false)
-                                    .setAnimation(R.raw.rocket_telescope)
-                                    .setNegativeButton(updateSkipable==0?"Exit":"Cancel", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                                    .setAnimation(R.drawable.user)
+                                    .setNegativeButton(updateSkipable==0?"Exit":"Cancel", R.drawable.exit, (dialogInterface, which) -> {
                                         if(updateSkipable == 0) { //NO
                                             finish();
                                         } else if(updateSkipable == 1) { //YES
@@ -743,7 +743,7 @@ public class Splash extends AppCompatActivity {
                                             openApp();
                                         }
                                     })
-                                    .setPositiveButton("Update!", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                                    .setPositiveButton("Update!", R.drawable.exit, (dialogInterface, which) -> {
                                         if(updateType == 0) {
                                             Intent intent = new Intent(Splash.this, InAppUpdate.class);
                                             intent.putExtra("Update_Title", "Update "+latestAPKVersionName);
@@ -1252,7 +1252,7 @@ public class Splash extends AppCompatActivity {
             helperUtils = new HelperUtils(Splash.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Splash.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Splash.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 

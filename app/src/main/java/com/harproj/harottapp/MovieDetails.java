@@ -179,9 +179,9 @@ public class MovieDetails extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.Home_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.comment_tag_bg);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.edittext_bg);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
         DrawableCompat.setTint(wrappedDrawable, Color.parseColor(AppConfig.primeryThemeColor));
 
@@ -196,7 +196,7 @@ public class MovieDetails extends AppCompatActivity {
             helperUtils = new HelperUtils(MovieDetails.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(MovieDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(MovieDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -235,7 +235,7 @@ public class MovieDetails extends AppCompatActivity {
 
         View trailerLayout = findViewById(R.id.Trailer_Layout);
         trailerLayout.setOnClickListener(view -> {
-            if(!trailerUrl.equals("")) {
+            if(!Objects.equals(trailerUrl, "")) {
                 Intent intent1 = new Intent(MovieDetails.this, TrailerPlayer.class);
                 intent1.putExtra("Trailer_URL", trailerUrl);
                 startActivity(intent1);
@@ -281,7 +281,7 @@ public class MovieDetails extends AppCompatActivity {
                         //playMovieTab(true);
                     } else {
                         HelperUtils helperUtils = new HelperUtils(MovieDetails.this);
-                        helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                        helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                     }
 
                 } else {
@@ -297,7 +297,7 @@ public class MovieDetails extends AppCompatActivity {
                     //playMovieTab(true);
                 } else {
                     HelperUtils helperUtils = new HelperUtils(MovieDetails.this);
-                    helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                    helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
                 }
             }
         });
@@ -355,7 +355,7 @@ public class MovieDetails extends AppCompatActivity {
                             showDownloadOption(id);
                         } else {
                             HelperUtils helperUtils = new HelperUtils(MovieDetails.this);
-                            helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Download Premium Content", R.raw.rocket_telescope);
+                            helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Download Premium Content", R.drawable.user);
                         }
 
                     } else {
@@ -368,7 +368,7 @@ public class MovieDetails extends AppCompatActivity {
                         showDownloadOption(id);
                     } else {
                         HelperUtils helperUtils = new HelperUtils(MovieDetails.this);
-                        helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Download Premium Content", R.raw.rocket_telescope);
+                        helperUtils.Buy_Premium_Dialog(MovieDetails.this, "Buy Premium!", "Buy Premium Subscription To Download Premium Content", R.drawable.user);
                     }
                 }
             }
@@ -1131,7 +1131,7 @@ public class MovieDetails extends AppCompatActivity {
             ImageView movieDetailsPoster = findViewById(R.id.Movie_Details_Poster);
             Glide.with(MovieDetails.this)
                     .load(poster)
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(movieDetailsPoster);
 
             View premiumTag = findViewById(R.id.Premium_Tag);
@@ -1151,15 +1151,15 @@ public class MovieDetails extends AppCompatActivity {
             descriptionTextView.setText(description);
 
             if(trailerUrl.equals("")) {
-                trailerIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.trailer_blocked_icon));
+                trailerIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.trailer_blocked));
             } else {
-                trailerIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.trailer_icon));
+                trailerIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.trailer));
             }
 
             if(downloadable == 0) {
-                downloadIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.download_blocked_icon));
+                downloadIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.downloads_blocked));
             } else if(downloadable == 1) {
-                downloadIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.download_icon));
+                downloadIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.downloads));
             }
 
 
@@ -1241,7 +1241,7 @@ public class MovieDetails extends AppCompatActivity {
         StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"favourite/SET/"+ tempUserID +"/Movie/"+contentId, response -> {
             if(response.equals("New favourite created successfully")) {
                isFavourite = true;
-               favouriteIcon.setImageDrawable(ContextCompat.getDrawable(MovieDetails.this, R.drawable.red_heart_favorite));
+               favouriteIcon.setImageDrawable(ContextCompat.getDrawable(MovieDetails.this, R.drawable.heart_red));
             }
 
         }, error -> {
@@ -1262,7 +1262,7 @@ public class MovieDetails extends AppCompatActivity {
         StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"favourite/SEARCH/"+ tempUserID +"/Movie/"+contentId, response -> {
             if(response.equals("Record Found")) {
                 isFavourite = true;
-                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(MovieDetails.this, R.drawable.red_heart_favorite));
+                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(MovieDetails.this, R.drawable.heart_red));
             }
 
         }, error -> {
@@ -1283,7 +1283,7 @@ public class MovieDetails extends AppCompatActivity {
         StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"favourite/REMOVE/"+ tempUserID +"/Movie/"+contentId, response -> {
             if(response.equals("Favourite successfully Removed")) {
                 isFavourite = false;
-                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(MovieDetails.this, R.drawable.heart_favorite));
+                favouriteIcon.setImageDrawable(ContextCompat.getDrawable(MovieDetails.this, R.drawable.heart));
             }
 
         }, error -> {
@@ -1379,7 +1379,7 @@ public class MovieDetails extends AppCompatActivity {
             helperUtils = new HelperUtils(MovieDetails.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(MovieDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(MovieDetails.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

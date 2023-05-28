@@ -75,7 +75,7 @@ public class LoginSignup extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.login_signup_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
         setContentView(R.layout.activity_login_signup);
 
@@ -88,7 +88,7 @@ public class LoginSignup extends AppCompatActivity {
             helperUtils = new HelperUtils(LoginSignup.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(LoginSignup.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(LoginSignup.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -272,14 +272,14 @@ public class LoginSignup extends AppCompatActivity {
             if(loginEditTextEmailAddress.hasFocus()) {
                 loginEmailBottombar.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(AppConfig.primeryThemeColor)));
             } else {
-                loginEmailBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.w_Dark)));
+                loginEmailBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.bottomNavigation)));
             }
         });
         loginEditTextPassword.setOnFocusChangeListener((view, b) -> {
             if(loginEditTextPassword.hasFocus()) {
                 loginPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(AppConfig.primeryThemeColor)));
             } else {
-                loginPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.w_Dark)));
+                loginPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.bottomNavigation)));
             }
         });
 
@@ -288,28 +288,28 @@ public class LoginSignup extends AppCompatActivity {
             if(signupFullnameEdittext.hasFocus()) {
                 signupFullnameButtombar.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(AppConfig.primeryThemeColor)));
             } else {
-                signupFullnameButtombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.w_Dark)));
+                signupFullnameButtombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.bottomNavigation)));
             }
         });
         signupEditTextTextEmailAddress.setOnFocusChangeListener((view, b) -> {
             if(signupEditTextTextEmailAddress.hasFocus()) {
                 signupEmailBottombar.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(AppConfig.primeryThemeColor)));
             } else {
-                signupEmailBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.w_Dark)));
+                signupEmailBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.bottomNavigation)));
             }
         });
         signupPasswordEdittext.setOnFocusChangeListener((view, b) -> {
             if(signupPasswordEdittext.hasFocus()) {
                 signupPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(AppConfig.primeryThemeColor)));
             } else {
-                signupPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.w_Dark)));
+                signupPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.bottomNavigation)));
             }
         });
         signupConfirmPasswordEdittext.setOnFocusChangeListener((view, b) -> {
             if(signupConfirmPasswordEdittext.hasFocus()) {
                 signupConfirmPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(AppConfig.primeryThemeColor)));
             } else {
-                signupConfirmPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.w_Dark)));
+                signupConfirmPasswordBottombar.setBackgroundTintList(ColorStateList.valueOf(getColor(R.color.bottomNavigation)));
             }
         });
 
@@ -751,7 +751,7 @@ public class LoginSignup extends AppCompatActivity {
             helperUtils = new HelperUtils(LoginSignup.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(LoginSignup.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(LoginSignup.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

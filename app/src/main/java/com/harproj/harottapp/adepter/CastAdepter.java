@@ -67,7 +67,7 @@ public class CastAdepter extends RecyclerView.Adapter<CastAdepter.myViewHolder> 
         void setImage(CastList castList) {
             Glide.with(context)
                     .load(castList.getImage())
-                    .placeholder(R.drawable.ic_profile_user)
+                    .placeholder(R.drawable.user)
                     .into(image);
         }
     }

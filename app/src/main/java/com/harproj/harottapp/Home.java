@@ -1,5 +1,10 @@
 package com.harproj.harottapp;
 
+import static com.harproj.harottapp.utils.Constants.AUTOPLAY;
+import static com.harproj.harottapp.utils.Constants.EXTENTIONS;
+import static com.harproj.harottapp.utils.Constants.NOTIFICATIONS;
+import static com.harproj.harottapp.utils.Constants.SOFTWARE_EXTENTIONS;
+
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
@@ -210,9 +215,9 @@ public class Home extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.Home_TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.comment_tag_bg);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.edittext_bg);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
         DrawableCompat.setTint(wrappedDrawable, Color.parseColor(AppConfig.primeryThemeColor));
 
@@ -249,7 +254,7 @@ public class Home extends AppCompatActivity {
             helperUtils = new HelperUtils(Home.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Home.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Home.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -300,19 +305,19 @@ public class Home extends AppCompatActivity {
 
         //-----Search LAYOUT--------//
         EditText searchContentEditText = findViewById(R.id.Search_content_editText);
-       // View bigSearchLottieAnimation = findViewById(R.id.big_search_Lottie_animation);
+        View bigSearchLottieAnimation = findViewById(R.id.big_search_Lottie_animation);
         RecyclerView searchLayoutRecyclerView = findViewById(R.id.Search_Layout_RecyclerView);
 
         //------HOME LAYOUTS--------//
         View homeLayout = findViewById(R.id.Home_Layout);
-        View searchLayout = findViewById(R.id.Live_Layout);
+        View searchLayout = findViewById(R.id.Search_Layout);
         View moviesLayout = findViewById(R.id.Movies_Layout);
         View seriesLayout = findViewById(R.id.Series_Layout);
-        View accountLayout = findViewById(R.id.Favorites_Layout);
+        View accountLayout = findViewById(R.id.Account_Layout);
 
-        LinearLayout homeSearchTag = findViewById(R.id.homeSearchTag);
+        LinearLayout homeSearchTag = findViewById(R.id.searchToolbar);
         homeSearchTag.setOnClickListener(view -> {
-            //bottomNavigationView.setSelectedItemId(R.id.Search);
+            bottomNavigationView.setSelectedItemId(R.id.search);
             homeLayout.setVisibility(View.GONE);
             searchLayout.setVisibility(View.VISIBLE);
             moviesLayout.setVisibility(View.GONE);
@@ -320,8 +325,6 @@ public class Home extends AppCompatActivity {
             accountLayout.setVisibility(View.GONE);
             searchContentEditText.setText("");
         });
-
-        Favorites favorites = new Favorites();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             final int previousItem = bottomNavigationView.getSelectedItemId();
@@ -336,21 +339,21 @@ public class Home extends AppCompatActivity {
                         accountLayout.setVisibility(View.GONE);
                         loadhomecontentlist();
                         break;
-                    case R.id.movie:
+                    case R.id.search:
+                        homeLayout.setVisibility(View.GONE);
+                        searchLayout.setVisibility(View.VISIBLE);
+                        moviesLayout.setVisibility(View.GONE);
+                        seriesLayout.setVisibility(View.GONE);
+                        accountLayout.setVisibility(View.GONE);
+                        searchContentEditText.setText("");
+                        break;
+                    case R.id.movies:
                         homeLayout.setVisibility(View.GONE);
                         searchLayout.setVisibility(View.GONE);
                         moviesLayout.setVisibility(View.VISIBLE);
                         seriesLayout.setVisibility(View.GONE);
                         accountLayout.setVisibility(View.GONE);
                         movieList();
-                        break;
-                    case R.id.livetv:
-                        homeLayout.setVisibility(View.GONE);
-                        searchLayout.setVisibility(View.VISIBLE);
-                        moviesLayout.setVisibility(View.GONE);
-                        seriesLayout.setVisibility(View.GONE);
-                        accountLayout.setVisibility(View.GONE);
-                        liveTv();
                         break;
                     case R.id.series:
                         homeLayout.setVisibility(View.GONE);
@@ -360,13 +363,12 @@ public class Home extends AppCompatActivity {
                         accountLayout.setVisibility(View.GONE);
                         webSeriesList();
                         break;
-                    case R.id.favorite:
+                    case R.id.account:
                         homeLayout.setVisibility(View.GONE);
                         searchLayout.setVisibility(View.GONE);
                         moviesLayout.setVisibility(View.GONE);
                         seriesLayout.setVisibility(View.GONE);
                         accountLayout.setVisibility(View.VISIBLE);
-                        favorites.loadFavouriteList();
                         break;
                     default:
 
@@ -380,7 +382,7 @@ public class Home extends AppCompatActivity {
         String openType = intent.getExtras().getString("OpenType");
         if(openType != null) {
             if(openType.equals("Movies")) {
-                bottomNavigationView.setSelectedItemId(R.id.movie);
+                bottomNavigationView.setSelectedItemId(R.id.movies);
                 homeLayout.setVisibility(View.GONE);
                 searchLayout.setVisibility(View.GONE);
                 moviesLayout.setVisibility(View.VISIBLE);
@@ -489,7 +491,7 @@ public class Home extends AppCompatActivity {
 
         ImageView moreMovies = findViewById(R.id.More_Movies);
         moreMovies.setOnClickListener(view -> {
-            bottomNavigationView.setSelectedItemId(R.id.movie);
+            bottomNavigationView.setSelectedItemId(R.id.movies);
             homeLayout.setVisibility(View.GONE);
             searchLayout.setVisibility(View.GONE);
             moviesLayout.setVisibility(View.VISIBLE);
@@ -509,7 +511,7 @@ public class Home extends AppCompatActivity {
             webSeriesList();
         });
 
-        TextView moreLiveTV = findViewById(R.id.More_Live_TV);
+        ImageView moreLiveTV = findViewById(R.id.More_Live_TV);
         moreLiveTV.setOnClickListener(view -> {
             Intent intent12 = new Intent(Home.this, LiveTv.class);
             startActivity(intent12);
@@ -517,7 +519,7 @@ public class Home extends AppCompatActivity {
 
         ImageView moreRecentMovies = findViewById(R.id.More_Recent_Movies);
         moreRecentMovies.setOnClickListener(view -> {
-            bottomNavigationView.setSelectedItemId(R.id.movie);
+            bottomNavigationView.setSelectedItemId(R.id.movies);
             homeLayout.setVisibility(View.GONE);
             searchLayout.setVisibility(View.GONE);
             moviesLayout.setVisibility(View.VISIBLE);
@@ -559,9 +561,9 @@ public class Home extends AppCompatActivity {
             TinyDB tinyDB = new TinyDB(this);
 
             blockNotifications = bottomSheetDialog.findViewById(R.id.blockNotifications);
-            blockNotifications.setChecked(tinyDB.getBoolean(Constants.NOTIFICATIONS));
+            blockNotifications.setChecked(tinyDB.getBoolean(NOTIFICATIONS));
             blockNotifications.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                tinyDB.putBoolean(Constants.NOTIFICATIONS, isChecked);
+                tinyDB.putBoolean(NOTIFICATIONS, isChecked);
                 OneSignal.disablePush(isChecked);
             });
 
@@ -577,21 +579,21 @@ public class Home extends AppCompatActivity {
             });
 
             autoPlay = bottomSheetDialog.findViewById(R.id.autoPlay);
-            autoPlay.setChecked(tinyDB.getBoolean(Constants.AUTOPLAY));
+            autoPlay.setChecked(tinyDB.getBoolean(AUTOPLAY));
             autoPlay.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                tinyDB.putBoolean(Constants.AUTOPLAY, isChecked);
+                tinyDB.putBoolean(AUTOPLAY, isChecked);
             });
 
             preferExtensionRenderer = bottomSheetDialog.findViewById(R.id.preferExtensionRenderer);
-            preferExtensionRenderer.setChecked(tinyDB.getBoolean(Constants.EXTENTIONS));
+            preferExtensionRenderer.setChecked(tinyDB.getBoolean(EXTENTIONS));
             preferExtensionRenderer.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                tinyDB.putBoolean(Constants.EXTENTIONS, isChecked);
+                tinyDB.putBoolean(EXTENTIONS, isChecked);
             });
 
             softwareCodec = bottomSheetDialog.findViewById(R.id.softwareCodec);
-            softwareCodec.setChecked(tinyDB.getBoolean(Constants.SOFTWARE_EXTENTIONS));
+            softwareCodec.setChecked(tinyDB.getBoolean(SOFTWARE_EXTENTIONS));
             softwareCodec.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                tinyDB.putBoolean(Constants.SOFTWARE_EXTENTIONS, isChecked);
+                tinyDB.putBoolean(SOFTWARE_EXTENTIONS, isChecked);
             });
 
             long totalSize = new File(getApplicationContext().getFilesDir().getAbsoluteFile().toString()).getTotalSpace();
@@ -813,13 +815,13 @@ public class Home extends AppCompatActivity {
 
             if(appLanguage.equals("en") || appLanguage.equals("")) {
                 linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                textview_english.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                textview_english.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
@@ -831,107 +833,107 @@ public class Home extends AppCompatActivity {
                 tempLanguage = "en";
             }
             else if(appLanguage.equals("hi")) {
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
-                textview_hindi.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_hindi.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("अपनी प्रदर्शन भाषा चुनें");
-                languageDialogSubHeader.setText("कृपया एक का चयन करें");
+                languageDialogHeader.setText("à¤…à¤ªà¤¨à¥€ à¤ªà¥à¤°à¤¦à¤°à¥à¤¶à¤¨ à¤­à¤¾à¤·à¤¾ à¤šà¥à¤¨à¥‡à¤‚");
+                languageDialogSubHeader.setText("à¤•à¥ƒà¤ªà¤¯à¤¾ à¤à¤• à¤•à¤¾ à¤šà¤¯à¤¨ à¤•à¤°à¥‡à¤‚");
                 tempLanguage = "hi";
             }
             else if(appLanguage.equals("bn")) {
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
-                textview_bengali.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_bengali.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("আপনার প্রদর্শন ভাষা \nচয়ন করুন");
-                languageDialogSubHeader.setText("অনুগ্রহপূর্বক একটা নির্বাচন করুন");
+                languageDialogHeader.setText("à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à¦¦à¦°à§à¦¶à¦¨ à¦­à¦¾à¦·à¦¾ \nà¦šà¦¯à¦¼à¦¨ à¦•à¦°à§à¦¨");
+                languageDialogSubHeader.setText("à¦…à¦¨à§à¦—à§à¦°à¦¹à¦ªà§‚à¦°à§à¦¬à¦• à¦à¦•à¦Ÿà¦¾ à¦¨à¦¿à¦°à§à¦¬à¦¾à¦šà¦¨ à¦•à¦°à§à¦¨");
                 tempLanguage = "bn";
             }
             else if(appLanguage.equals("es")) {
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
-                textview_spanish.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_spanish.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("Elija su idioma \nde visualización");
+                languageDialogHeader.setText("Elija su idioma \nde visualizaciÃ³n");
                 languageDialogSubHeader.setText("Por favor, seleccione uno");
                 tempLanguage = "es";
             }
             else if(appLanguage.equals("ru")) {
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
-                textview_russian.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_russian.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("Выберите язык \nотображения");
-                languageDialogSubHeader.setText("Пожалуйста, выберите один");
+                languageDialogHeader.setText("Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ·Ñ‹Ðº \nÐ¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ");
+                languageDialogSubHeader.setText("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð´Ð¸Ð½");
                 tempLanguage = "ru";
             }
             else if(appLanguage.equals("tr")) {
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
-                textview_turkish.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_turkish.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("Görüntüleme Dilinizi \nSeçin");
-                languageDialogSubHeader.setText("Lütfen birini seçin");
+                languageDialogHeader.setText("GÃ¶rÃ¼ntÃ¼leme Dilinizi \nSeÃ§in");
+                languageDialogSubHeader.setText("LÃ¼tfen birini seÃ§in");
                 tempLanguage = "tr";
             }
             else if(appLanguage.equals("zh")) {
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.color.white));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
@@ -939,9 +941,9 @@ public class Home extends AppCompatActivity {
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
-                textview_chaines.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
-                languageDialogHeader.setText("选择您的显示语言");
-                languageDialogSubHeader.setText("请选择一项");
+                textview_chaines.setTextColor(ContextCompat.getColor(context, R.color.yellow));
+                languageDialogHeader.setText("é€‰æ‹©æ‚¨çš„æ˜¾ç¤ºè¯­è¨€");
+                languageDialogSubHeader.setText("è¯·é€‰æ‹©ä¸€é¡¹");
                 tempLanguage = "zh";
             }
 
@@ -949,13 +951,13 @@ public class Home extends AppCompatActivity {
 
             cardView_english.setOnClickListener(v1->{
                 linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                textview_english.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                textview_english.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
@@ -967,107 +969,107 @@ public class Home extends AppCompatActivity {
                 tempLanguage = "en";
             });
             cardView_hindi.setOnClickListener(v2->{
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
-                textview_hindi.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_hindi.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("अपनी प्रदर्शन भाषा चुनें");
-                languageDialogSubHeader.setText("कृपया एक का चयन करें");
+                languageDialogHeader.setText("à¤…à¤ªà¤¨à¥€ à¤ªà¥à¤°à¤¦à¤°à¥à¤¶à¤¨ à¤­à¤¾à¤·à¤¾ à¤šà¥à¤¨à¥‡à¤‚");
+                languageDialogSubHeader.setText("à¤•à¥ƒà¤ªà¤¯à¤¾ à¤à¤• à¤•à¤¾ à¤šà¤¯à¤¨ à¤•à¤°à¥‡à¤‚");
                 tempLanguage = "hi";
             });
             cardView_bengali.setOnClickListener(v3->{
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
-                textview_bengali.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_bengali.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("আপনার প্রদর্শন ভাষা \nচয়ন করুন");
-                languageDialogSubHeader.setText("অনুগ্রহপূর্বক একটা নির্বাচন করুন");
+                languageDialogHeader.setText("à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à¦¦à¦°à§à¦¶à¦¨ à¦­à¦¾à¦·à¦¾ \nà¦šà¦¯à¦¼à¦¨ à¦•à¦°à§à¦¨");
+                languageDialogSubHeader.setText("à¦…à¦¨à§à¦—à§à¦°à¦¹à¦ªà§‚à¦°à§à¦¬à¦• à¦à¦•à¦Ÿà¦¾ à¦¨à¦¿à¦°à§à¦¬à¦¾à¦šà¦¨ à¦•à¦°à§à¦¨");
                 tempLanguage = "bn";
             });
             cardView_spanish.setOnClickListener(v4->{
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
-                textview_spanish.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_spanish.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("Elija su idioma \nde visualización");
+                languageDialogHeader.setText("Elija su idioma \nde visualizaciÃ³n");
                 languageDialogSubHeader.setText("Por favor, seleccione uno");
                 tempLanguage = "es";
             });
             cardView_russian.setOnClickListener(v5->{
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
-                textview_russian.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_russian.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_turkish.setTextColor(Color.WHITE);
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("Выберите язык \nотображения");
-                languageDialogSubHeader.setText("Пожалуйста, выберите один");
+                languageDialogHeader.setText("Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÑÐ·Ñ‹Ðº \nÐ¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ");
+                languageDialogSubHeader.setText("ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð´Ð¸Ð½");
                 tempLanguage = "ru";
             });
             cardView_turkish.setOnClickListener(v6->{
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.color.white));
-                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
                 textview_bengali.setTextColor(Color.WHITE);
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
-                textview_turkish.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
+                textview_turkish.setTextColor(ContextCompat.getColor(context, R.color.yellow));
                 textview_chaines.setTextColor(Color.WHITE);
-                languageDialogHeader.setText("Görüntüleme Dilinizi \nSeçin");
-                languageDialogSubHeader.setText("Lütfen birini seçin");
+                languageDialogHeader.setText("GÃ¶rÃ¼ntÃ¼leme Dilinizi \nSeÃ§in");
+                languageDialogSubHeader.setText("LÃ¼tfen birini seÃ§in");
                 tempLanguage = "tr";
             });
             cardView_chaines.setOnClickListener(v7->{
-                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
-                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.language_dialog_bg));
+                linearlayout_english.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_hindi.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_bengali.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_spanish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_russian.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
+                linearlayout_turkish.setBackground(AppCompatResources.getDrawable(context, R.drawable.edittext_bg));
                 linearlayout_chaines.setBackground(AppCompatResources.getDrawable(context, R.color.white));
                 textview_english.setTextColor(Color.WHITE);
                 textview_hindi.setTextColor(Color.WHITE);
@@ -1075,9 +1077,9 @@ public class Home extends AppCompatActivity {
                 textview_spanish.setTextColor(Color.WHITE);
                 textview_russian.setTextColor(Color.WHITE);
                 textview_turkish.setTextColor(Color.WHITE);
-                textview_chaines.setTextColor(ContextCompat.getColor(context, R.color.Red_Smooth));
-                languageDialogHeader.setText("选择您的显示语言");
-                languageDialogSubHeader.setText("请选择一项");
+                textview_chaines.setTextColor(ContextCompat.getColor(context, R.color.yellow));
+                languageDialogHeader.setText("é€‰æ‹©æ‚¨çš„æ˜¾ç¤ºè¯­è¨€");
+                languageDialogSubHeader.setText("è¯·é€‰æ‹©ä¸€é¡¹");
                 tempLanguage = "zh";
             });
 
@@ -1264,9 +1266,8 @@ public class Home extends AppCompatActivity {
                     .setTitle("Logout!")
                     .setMessage("Want to Logout?")
                     .setCancelable(true)
-                    .setAnimation(R.raw.logout)
                     .setNegativeButton("Cancel", R.drawable.close, (dialogInterface, which) -> dialogInterface.dismiss())
-                    .setPositiveButton("Logout", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                    .setPositiveButton("Logout", R.drawable.exit, (dialogInterface, which) -> {
                         SharedPreferences settings = context.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE);
                         settings.edit().clear().apply();
 
@@ -1302,10 +1303,10 @@ public class Home extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(String.valueOf(searchContentEditText.getText()).equals("")) {
-                    //bigSearchLottieAnimation.setVisibility(View.VISIBLE);
+                    bigSearchLottieAnimation.setVisibility(View.VISIBLE);
                     searchLayoutRecyclerView.setVisibility(View.GONE);
                 } else  {
-                    //bigSearchLottieAnimation.setVisibility(View.GONE);
+                    bigSearchLottieAnimation.setVisibility(View.GONE);
                     searchLayoutRecyclerView.setVisibility(View.VISIBLE);
 
                     searchContent(String.valueOf(searchContentEditText.getText()));
@@ -1374,27 +1375,25 @@ public class Home extends AppCompatActivity {
             liveTvLayout.setVisibility(View.VISIBLE);
         }
 
-        /**
-         TinyDB tinyDB = new TinyDB(this);
-         SwitchMaterial includePremiumSwitch = findViewById(R.id.includePremiumSwitch);
-         includePremiumSwitch.setChecked(tinyDB.getBoolean("onlyPremium"));
-         if(tinyDB.getBoolean("onlyPremium")) {
-         onlyPremium = 1;
-         } else {
-         onlyPremium = 0;
-         }
-         includePremiumSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        //@Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        tinyDB.putBoolean("onlyPremium", isChecked);
-        if(isChecked) {
-        onlyPremium = 1;
+        TinyDB tinyDB = new TinyDB(this);
+        SwitchMaterial includePremiumSwitch = findViewById(R.id.includePremiumSwitch);
+        includePremiumSwitch.setChecked(tinyDB.getBoolean("onlyPremium"));
+        if(tinyDB.getBoolean("onlyPremium")) {
+            onlyPremium = 1;
         } else {
-        onlyPremium = 0;
+            onlyPremium = 0;
         }
-        }
+        includePremiumSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                tinyDB.putBoolean("onlyPremium", isChecked);
+                if(isChecked) {
+                    onlyPremium = 1;
+                } else {
+                    onlyPremium = 0;
+                }
+            }
         });
-         **/
 
         ImageView clearContinuePlaying = findViewById(R.id.clearContinuePlaying);
         clearContinuePlaying.setOnClickListener(view -> {
@@ -1402,15 +1401,14 @@ public class Home extends AppCompatActivity {
                     .setTitle("Clear Continue Playing List?")
                     .setMessage("You can't Revert this!")
                     .setCancelable(false)
-                    .setAnimation(R.raw.delete)
-                    .setPositiveButton("Yes", R.drawable.ic_baseline_exit, (dialogInterface, which) -> {
+                    .setPositiveButton("Yes", R.drawable.exit, (dialogInterface, which) -> {
                         dialogInterface.dismiss();
 
                         db.resumeContentDao().clearDB();
                         loadResumeContents(db.resumeContentDao().getResumeContents());
                         resume_Layout.setVisibility(View.GONE);
                     })
-                    .setNegativeButton("NO", R.drawable.ic_baseline_exit, (dialogInterface, which) -> dialogInterface.dismiss())
+                    .setNegativeButton("NO", R.drawable.exit, (dialogInterface, which) -> dialogInterface.dismiss())
                     .build();
             mDialog.show();
         });
@@ -1421,43 +1419,41 @@ public class Home extends AppCompatActivity {
 
 
         /////////////
-        /**
-         LinearLayout movieFilterTag = findViewById(R.id.movieFilterTag);
-         movieFilterTag.setOnClickListener(view -> {
-         final Dialog dialog = new BottomSheetDialog(Home.this);
+        LinearLayout movieFilterTag = findViewById(R.id.movieFilterTag);
+        movieFilterTag.setOnClickListener(view -> {
+            final Dialog dialog = new BottomSheetDialog(Home.this);
 
-         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-         dialog.setCancelable(false);
-         dialog.setContentView(R.layout.filter_dialog);
-         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-         dialog.setCanceledOnTouchOutside(true);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.filter_dialog);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.setCanceledOnTouchOutside(true);
 
-         ImageView dialogClose = (ImageView) dialog.findViewById(R.id.dialogClose);
-         dialogClose.setOnClickListener(v -> dialog.dismiss());
-
-
-
-         dialog.show();
-         });
-
-         LinearLayout webSeriesFilterTag = findViewById(R.id.webSeriesFilterTag);
-         webSeriesFilterTag.setOnClickListener(view -> {
-         final Dialog dialog = new BottomSheetDialog(Home.this);
-
-         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-         dialog.setCancelable(false);
-         dialog.setContentView(R.layout.filter_dialog);
-         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-         dialog.setCanceledOnTouchOutside(true);
-
-         ImageView dialogClose = (ImageView) dialog.findViewById(R.id.dialogClose);
-         dialogClose.setOnClickListener(v -> dialog.dismiss());
+            ImageView dialogClose = (ImageView) dialog.findViewById(R.id.dialogClose);
+            dialogClose.setOnClickListener(v -> dialog.dismiss());
 
 
 
-         dialog.show();
-         });
-         * **/
+            dialog.show();
+        });
+
+        LinearLayout webSeriesFilterTag = findViewById(R.id.webSeriesFilterTag);
+        webSeriesFilterTag.setOnClickListener(view -> {
+            final Dialog dialog = new BottomSheetDialog(Home.this);
+
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.filter_dialog);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.setCanceledOnTouchOutside(true);
+
+            ImageView dialogClose = (ImageView) dialog.findViewById(R.id.dialogClose);
+            dialogClose.setOnClickListener(v -> dialog.dismiss());
+
+
+
+            dialog.show();
+        });
         setColorTheme(Color.parseColor(AppConfig.primeryThemeColor));
     }
     //OnCreate Finish
@@ -1524,8 +1520,8 @@ public class Home extends AppCompatActivity {
         /*Home Layout*/
 
         /*Search Layout*/
-        //TextView searchText = findViewById(R.id.searchText);
-        //searchText.setTextColor(color);
+        TextView searchText = findViewById(R.id.searchText);
+        searchText.setTextColor(color);
 
         /*SwitchMaterial includePremiumSwitch = findViewById(R.id.includePremiumSwitch);
         ColorStateList thumbStates = new ColorStateList(
@@ -1559,13 +1555,13 @@ public class Home extends AppCompatActivity {
         /*Search Layout*/
 
         /*Search Layout*/
-        //TextView moviesTitleText = findViewById(R.id.moviesTitleText);
-        //moviesTitleText.setTextColor(color);
+        TextView moviesTitleText = findViewById(R.id.moviesTitleText);
+        moviesTitleText.setTextColor(color);
         /*Search Layout*/
 
         /*Search Layout*/
-        //TextView seriesTitleText = findViewById(R.id.seriesTitleText);
-        //seriesTitleText.setTextColor(color);
+        TextView seriesTitleText = findViewById(R.id.seriesTitleText);
+        seriesTitleText.setTextColor(color);
         /*Search Layout*/
 
         /*Profile Layout*/
@@ -1922,9 +1918,9 @@ public class Home extends AppCompatActivity {
                 searchLayoutRecyclerView.setAdapter(myadepter);
 
             } else {
-                //View bigSearchLottieAnimation = findViewById(R.id.big_search_Lottie_animation);
+                View bigSearchLottieAnimation = findViewById(R.id.big_search_Lottie_animation);
                 RecyclerView searchLayoutRecyclerView = findViewById(R.id.Search_Layout_RecyclerView);
-                //bigSearchLottieAnimation.setVisibility(View.VISIBLE);
+                bigSearchLottieAnimation.setVisibility(View.VISIBLE);
                 searchLayoutRecyclerView.setVisibility(View.GONE);
             }
         }, error -> {
@@ -2108,7 +2104,7 @@ public class Home extends AppCompatActivity {
                 accountSubscriptionDate.setText("NEVER");
             } else {
                 accountType.setText("Premium");
-                accountType.setTextColor(getColor(R.color.Deep_Yellow));
+                accountType.setTextColor(getColor(R.color.yellow));
                 accountSubscriptionDate.setText(subscriptionExp);
             }
 
@@ -2698,64 +2694,7 @@ public class Home extends AppCompatActivity {
 
 
 
-    void liveTv() {
-        final int[] previousTotal = {0};
-        final boolean[] loading = {true};
-        int visibleThreshold = 3;
-        final int[] firstVisibleItem = new int[1];
-        final int[] visibleItemCount = new int[1];
-        final int[] totalItemCount = new int[1];
-        final int[] currentPage = {0};
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest sr = new StringRequest(Request.Method.GET, AppConfig.url +"getAllLiveTV", response -> {
-            if(!response.equals("No Data Avaliable")) {
-                JsonArray jsonArray = new Gson().fromJson(response, JsonArray.class);
-                List<LiveTvAllList> liveTvAllList = new ArrayList<>();
-                for (JsonElement r : jsonArray) {
-                    JsonObject rootObject = r.getAsJsonObject();
-                    int id = rootObject.get("id").getAsInt();
-                    String name = rootObject.get("name").getAsString();
-                    String banner = rootObject.get("banner").getAsString();
-                    int type = rootObject.get("type").getAsInt();
-                    int status = rootObject.get("status").getAsInt();
-                    String streamType = rootObject.get("stream_type").getAsString();
-                    String url = rootObject.get("url").getAsString();
-                    int contentType = rootObject.get("content_type").getAsInt();
-                    String drm_uuid = rootObject.get("drm_uuid").getAsString();
-                    String drm_license_uri = rootObject.get("drm_license_uri").getAsString();
-
-                    if (status == 1) {
-                        liveTvAllList.add(new LiveTvAllList(id, name, banner, streamType, url, contentType, type, playPremium, drm_uuid, drm_license_uri));
-                    }
-                }
-
-                if(shuffleContents == 1) {
-                    Collections.shuffle(liveTvAllList);
-                }
-
-                RecyclerView allLiveTvRecyclerView = findViewById(R.id.All_live_tv_Recycler_View);
-
-                GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
-                LiveTvAllListAdepter myadepter = new LiveTvAllListAdepter(Home.this, liveTvAllList);
-                allLiveTvRecyclerView.setLayoutManager(gridLayoutManager);
-                allLiveTvRecyclerView.setAdapter(myadepter);
-
-                findViewById(R.id.LiveTV_swipe_refresh_layout).setVisibility(View.VISIBLE);
-
-            }
-        }, error -> {
-            // Do nothing because There is No Error if error It will return 0
-        }) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<>();
-                params.put("x-api-key", AppConfig.apiKey);
-                return params;
-            }
-        };
-        queue.add(sr);
-    }
 
     void movieList() {
         final int[] previousTotal = {0};
@@ -3060,7 +2999,7 @@ public class Home extends AppCompatActivity {
             helperUtils = new HelperUtils(Home.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Home.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Home.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 

@@ -96,7 +96,7 @@ public class PlayMovieItemListAdepter extends RecyclerView.Adapter<PlayMovieItem
                 }
             } else {
                 HelperUtils helperUtils = new HelperUtils((MovieDetails) mContext);
-                helperUtils.Buy_Premium_Dialog((MovieDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.raw.rocket_telescope);
+                helperUtils.Buy_Premium_Dialog((MovieDetails) mContext, "Buy Premium!", "Buy Premium Subscription To Watch Premium Content", R.drawable.user);
             }
 
         } else {

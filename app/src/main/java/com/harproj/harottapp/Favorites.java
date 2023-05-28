@@ -78,7 +78,7 @@ public class Favorites extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.TitleBar_BG));
+        window.setStatusBarColor(ContextCompat.getColor(this,R.color.bg));
 
         setContentView(R.layout.activity_favorites);
 
@@ -87,7 +87,7 @@ public class Favorites extends AppCompatActivity {
             helperUtils = new HelperUtils(Favorites.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Favorites.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Favorites.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -262,13 +262,19 @@ public class Favorites extends AppCompatActivity {
     }
 
     String getYearFromDate(String date) {
+        if (date == null) {
+            return "";
+        }
+
         @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date parsedDate = null;
         try {
             parsedDate = format.parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
+            return "";
         }
+
         @SuppressLint("SimpleDateFormat") SimpleDateFormat df = new SimpleDateFormat("yyyy");
         return df.format(parsedDate);
     }
@@ -303,7 +309,7 @@ public class Favorites extends AppCompatActivity {
             helperUtils = new HelperUtils(Favorites.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Favorites.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Favorites.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

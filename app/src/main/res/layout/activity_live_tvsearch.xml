@@ -141,6 +141,7 @@
                         android:drawableTint="@color/white"
                         android:textColor="@color/white"
                         android:background="@drawable/edittext_bg"
+                        android:backgroundTint="@null"
                         android:fontFamily="@font/baloo2_medium"
                         android:textColorHint="@color/unselect"
                         android:textSize="16sp"

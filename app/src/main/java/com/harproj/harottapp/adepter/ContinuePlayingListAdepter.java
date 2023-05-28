@@ -149,7 +149,7 @@ public class ContinuePlayingListAdepter extends RecyclerView.Adapter<ContinuePla
         void setImage(ContinuePlayingList Thumbnail_Image) {
             Glide.with(context)
                     .load(Thumbnail_Image.getPoster())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(poster);
         }
 

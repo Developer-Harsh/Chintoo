@@ -123,7 +123,7 @@ public class Downloads extends AppCompatActivity implements ActionListener {
         TextView titleText = findViewById(R.id.titleText);
         titleText.setTextColor(color);
 
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.comment_tag_bg);
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.edittext_bg);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
         DrawableCompat.setTint(wrappedDrawable, color);
 

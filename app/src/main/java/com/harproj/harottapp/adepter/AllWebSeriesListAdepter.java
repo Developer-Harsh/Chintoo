@@ -133,7 +133,7 @@ public class AllWebSeriesListAdepter extends RecyclerView.Adapter<AllWebSeriesLi
         void setImage(WebSeriesList Thumbnail_Image) {
             Glide.with(context)
                     .load(Thumbnail_Image.getThumbnail())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(Thumbnail);
         }
     }

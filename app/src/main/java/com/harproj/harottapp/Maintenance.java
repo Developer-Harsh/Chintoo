@@ -28,7 +28,7 @@ public class Maintenance extends AppCompatActivity {
         Window window = this.getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this, R.color.Orange_Smooth));
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.bg));
 
 
         setContentView(R.layout.activity_maintenance);
@@ -38,7 +38,7 @@ public class Maintenance extends AppCompatActivity {
             helperUtils = new HelperUtils(Maintenance.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Maintenance.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Maintenance.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
 
@@ -82,7 +82,7 @@ public class Maintenance extends AppCompatActivity {
             helperUtils = new HelperUtils(Maintenance.this);
             vpnStatus = helperUtils.isVpnConnectionAvailable();
             if (vpnStatus) {
-                helperUtils.showWarningDialog(Maintenance.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.raw.network_activity_icon);
+                helperUtils.showWarningDialog(Maintenance.this, "VPN!", "You are Not Allowed To Use VPN Here!", R.drawable.user);
             }
         }
     }

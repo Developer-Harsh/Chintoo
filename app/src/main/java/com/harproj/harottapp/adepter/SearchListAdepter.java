@@ -112,7 +112,7 @@ public class SearchListAdepter extends RecyclerView.Adapter<SearchListAdepter.My
         void setImage(SearchList Thumbnail_Image) {
             Glide.with(context)
                     .load(Thumbnail_Image.getThumbnail())
-                    .placeholder(R.drawable.thumbnail_placeholder)
+                    .placeholder(R.drawable.poster_placeholder)
                     .into(Thumbnail);
         }
     }
